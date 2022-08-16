@@ -1,31 +1,35 @@
 <template>
   <section>
-    <router-view class="app-main" />
+   <nav class="flex gap-5">
+     <RouterLink :to="`/`">auth</RouterLink>
+     <RouterLink :to="`/dashboard`">dashboard</RouterLink>
+   </nav>
+    <RouterView />
   </section>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
-import { useUserStore } from "./store/user.js";
+// import { onMounted } from "vue";
+// import { storeToRefs } from "pinia";
+// import { useRouter } from "vue-router";
+// import { useUserStore } from "./store/user.js";
 
-const router = useRouter();
-const userStore = useUserStore();
-const { user } = storeToRefs(userStore);
+// const router = useRouter();
+// const userStore = useUserStore();
+// const { user } = storeToRefs(userStore);
 
-onMounted(async () => {
-  try {
-    await userStore.fetchUser(); // here we call fetch user
-    if (!user.value) {
-      // redirect them to logout if the user is not there
-      router.push({ path: "/auth" });
-    } else {
-      // continue to dashboard
-      router.push({ path: "/" });
-    }
-  } catch (e) {
-    console.log(e);
-  }
-});
+// onMounted(async () => {
+//   try {
+//     await userStore.fetchUser(); // here we call fetch user
+//     if (!user.value) {
+//       // redirect them to logout if the user is not there
+//       router.push({ path: "/auth" });
+//     } else {
+//       // continue to dashboard
+//       router.push({ path: "/" });
+//     }
+//   } catch (e) {
+//     console.log(e);
+//   }
+// });
 </script>
