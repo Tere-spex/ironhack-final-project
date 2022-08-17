@@ -35,9 +35,7 @@
                                 <i class="fa-solid fa-circle-check"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium">
-                                    elemento de la lista
-                                </p>
+                               <p class="text-sm font-medium">elemento de la lista</p>
                             </div>
                             <div class="inline-flex items-center text-base font-semibold">
                                 <ul class="flex gap-5">
@@ -53,9 +51,7 @@
                                 <i class="fa-solid fa-circle-check"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium">
-                                    elemento de la lista
-                                </p>
+                                <p class="text-sm font-medium">elemento de la lista</p>
                             </div>
                             <div class="inline-flex items-center text-base font-semibold">
                                 <ul class="flex gap-5">
@@ -71,9 +67,7 @@
                                 <i class="fa-solid fa-circle-check"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium">
-                                    elemento de la lista
-                                </p>
+                                <p class="text-sm font-medium">elemento de la lista</p>
                             </div>
                             <div class="inline-flex items-center text-base font-semibold">
                                 <ul class="flex gap-5">
@@ -103,7 +97,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>
