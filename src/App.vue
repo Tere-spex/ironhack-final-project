@@ -1,14 +1,13 @@
 <template>
   <section>
-    <nav class="flex gap-5 bg-gray-300 justify-center p-5 uppercase font-bold text-gray-600">
-      <RouterLink :to="`/`">auth</RouterLink>
-      <RouterLink :to="`/dashboard`">dashboard</RouterLink>
-    </nav>
+    <Nav />
     <RouterView />
   </section>
 </template>
 
 <script setup>
+import Nav from "./components/Nav.vue";
+
 // import { onMounted } from "vue";
 // import { storeToRefs } from "pinia";
 // import { useRouter } from "vue-router";
