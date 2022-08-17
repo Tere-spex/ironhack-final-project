@@ -1,12 +1,14 @@
 <template>
   <section>
-    <Nav />
+    <!-- <Nav /> -->
+    <Header />
     <RouterView />
   </section>
 </template>
 
 <script setup>
-import Nav from "./components/Nav.vue";
+// import Nav from "./components/Nav.vue";
+import Header from "./components/AppHeader.vue";
 
 // import { onMounted } from "vue";
 // import { storeToRefs } from "pinia";

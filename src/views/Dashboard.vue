@@ -25,7 +25,7 @@
         </div>
         <div class="bg-white border shadow-md sm:p-8 text-gray-500 p-5">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="uppercase text-xl font-bold leading-none">lista de tareas</h3>
+                <h3 class="text-xl font-bold leading-none">ToDo List</h3>
             </div>
             <div class="flow-root text-4xl">
                 <ul role="list">
@@ -35,7 +35,7 @@
                                 <button><i class="fa-solid fa-circle-check"></i></button>
                             </div>
                             <div class="flex-1 min-w-0">
-                               <p class="text-xl font-medium">elemento de la lista</p>
+                               <p class="text-xl font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
                                 <ul class="flex gap-5 text-2xl">

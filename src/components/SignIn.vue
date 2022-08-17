@@ -1,9 +1,10 @@
 <template>
-     <div class="flex flex-col h-[calc(100vh-65px)] justify-center items-center text-lg text-gray-500 font-semibold bg-purple-200">
+     <div class="flex flex-col h-[calc(100vh-150px)] justify-center items-center text-lg text-gray-500 font-semibold">
         <div class="p-4 max-w-md bg-white border shadow-md sm:p-8 text-gray-500">
             <div class="flex flex-col justify-between items-center">
                 <!-- <h3 class="uppercase text-xl font-bold leading-none">Sign In</h3> -->
                 <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
+                <span class="p-2">LOGIN</span>
             </div>
             <form class="flow-root">
                 <ul role="list">
