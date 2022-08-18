@@ -7,6 +7,7 @@ export const useTaskStore = defineStore("tasks", {
   state: () => ({
     tasks: null,
   }),
+  //GET
   actions: {
     async fetchTasks() {
       const { data: tasks } = await supabase

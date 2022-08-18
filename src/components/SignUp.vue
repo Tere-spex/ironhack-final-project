@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-[calc(100vh-132px)] justify-center items-center text-lg text-gray-500 font-semibold">
+    <div class="max-w-2xl mx-auto text-gray-500 font-semibold p-5 md:p-10">
         <div class="p-4 max-w-md bg-white border shadow-md sm:p-8 text-gray-500">
             <div class="flex flex-col justify-between items-center">
                 <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
@@ -23,7 +23,7 @@
                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                             <div class="space-x-4">
                                 <i class="fa-solid fa-unlock"></i>
-                                <input class="outline-none w-72" type="password" min="6" placeholder="Password">
+                                <input class="outline-none w-64 md:w-72" type="password" min="6" placeholder="Password">
                             </div>
                            <div>
                              <i class="fa-solid fa-eye"></i>

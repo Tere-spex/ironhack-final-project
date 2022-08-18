@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-2xl mx-auto text-gray-500 font-semibold p-10">
+    <section class="max-w-2xl mx-auto text-gray-500 font-semibold p-5 md:p-10">
         <div class="bg-gray-200 rounded-t-lg p-5">
             <ul class="flex justify-between">
                 <li>
