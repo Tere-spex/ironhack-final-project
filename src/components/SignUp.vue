@@ -4,26 +4,38 @@
             <div class="flex flex-col justify-between items-center">
                 <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
                 <span class="p-2">CREATE YOUR ACCOUNT</span>
+                <span>{{passwordcomfirm}}</span>
             </div>
             <form class="flow-root">
                 <ul role="list">
                     <li class="py-3 sm:py-4">
                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                             <i class="fa-solid fa-circle-user"></i>
-                            <input class="outline-none w-72" type="text" placeholder="Username">
+                            <input class="outline-none w-72" type="text" v-model="username" placeholder="Username">
                         </div>
                     </li>
                     <li class="py-3 sm:py-4 text-gray-500">
                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                             <i class="fa-solid fa-envelope"></i>
-                            <input class="outline-none w-72" type="email" placeholder="E-mail">
+                            <input class="outline-none w-72" type="email" v-model="email" placeholder="E-mail">
                         </div>
                     </li>
                     <li class="py-3 sm:py-4 text-gray-500">
                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                             <div class="space-x-4">
                                 <i class="fa-solid fa-unlock"></i>
-                                <input class="outline-none w-64 md:w-72" type="password" min="6" placeholder="Password">
+                                <input class="outline-none w-64 md:w-72" type="password" v-model="password" min="6" placeholder="Password">
+                            </div>
+                           <div>
+                             <i class="fa-solid fa-eye"></i>
+                           </div>
+                        </div>
+                    </li>
+                    <li class="py-3 sm:py-4 text-gray-500">
+                        <div class="flex items-center space-x-4 border rounded-lg p-2">
+                            <div class="space-x-4">
+                                <i class="fa-solid fa-unlock"></i>
+                                <input class="outline-none w-64 md:w-72" type="password" v-model="passwordcomfirm" min="6" placeholder="Repeat Password">
                             </div>
                            <div>
                              <i class="fa-solid fa-eye"></i>
@@ -50,7 +62,7 @@
                     <div class=" flex justify-center py-3 sm:py-4">
                         <div class="flex items-center space-x-4">
                             <div>
-                                <span>Already have an account? <RouterLink class="text-blue-300 font-normal" :to="`/dashboard`">Sing in</RouterLink></span>
+                                <span>Already have an account? <RouterLink class="text-blue-300 font-normal" :to="`/`">Sing in!</RouterLink></span>
                             </div>
                         </div>
                     </div>
@@ -62,6 +74,15 @@
 
 <script>
 export default {
+    name: "SignUp",
+    data() {
+        return {
+            username: "",
+            email: "",
+            password: "",
+            passwordcomfirm: "",
+        }
+    }
 
 }
 </script>

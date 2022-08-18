@@ -8,19 +8,18 @@
                 <span class="p-2">LOGIN</span>
             </div>
             <form class="flow-root">
-                
                 <ul role="list">
                   <li class="py-3 sm:py-4">
                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                             <i class="fa-solid fa-circle-user"></i>
-                            <input class="outline-none w-72" type="text" placeholder="Username">
+                            <input class="outline-none w-72" type="text" v-model="username" placeholder="Username">
                         </div>
                     </li>
                     <li class="py-3 sm:py-4 text-gray-500">
                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                             <div class="space-x-4">
                                 <i class="fa-solid fa-unlock"></i>
-                                <input class="outline-none w-64 md:w-72" type="password" min="6" placeholder="Password">
+                                <input class="outline-none w-64 md:w-72" type="password" v-model="password" min="6" placeholder="Password">
                             </div>
                            <div>
                              <i class="fa-solid fa-eye"></i>
@@ -35,7 +34,7 @@
                                 <input type="checkbox">
                                 <span>Remember me</span>
                             </div>
-                            <span><RouterLink class="text-blue-300 font-normal" :to="`/dashboard`">Forgot password?</RouterLink></span>
+                            <span><RouterLink class="text-blue-300 font-normal" :to="`/`">Forgot password?</RouterLink></span>
                         </div>
                     </div>
                     <div class=" flex justify-center py-3 sm:py-4">
@@ -48,7 +47,7 @@
                     <div class=" flex justify-center py-3 sm:py-4">
                         <div class="flex items-center space-x-4">
                             <div>
-                               <span>Not registered? <RouterLink class="text-blue-300 font-normal" :to="`/dashboard`">Create an acount!</RouterLink></span>
+                               <span>Not registered? <RouterLink class="text-blue-300 font-normal" :to="`/`">Create an acount!</RouterLink></span>
                             </div>
                         </div>
                     </div>
@@ -60,6 +59,13 @@
 
 <script>
 export default {
+    name: "SignIn",
+    data() {
+        return {
+            username: "",
+            password: "",
+        }
+    }
 
 }
 </script>

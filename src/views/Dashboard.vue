@@ -26,16 +26,16 @@
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold leading-none">ToDo List</h3>
             </div>
-            <div class="text-4xl">
+            <div class="textlg">
                 <ul role="list">
                     <li class="py-3 sm:py-4">
                         <div class="flex justify-between items-center border rounded-lg p-4 hover:bg-blue-100">
                             <div class="flex justify-center items-center gap-5">
-                                <button><i class="fa-solid fa-circle-check"></i></button>
-                                <p class="text-xl font-medium">list element</p>
+                                <button class="text-2xl"><i class="fa-solid fa-circle-check"></i></button>
+                                <p class="capitalize font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
-                                <ul class="flex gap-5 text-2xl">
+                                <ul class="flex gap-5 text-xl">
                                     <li><button><i class="fa-solid fa-pen-to-square"></i></button></li>
                                     <li><button><i class="fa-solid fa-trash"></i></button></li>
                                 </ul>
@@ -45,11 +45,11 @@
                     <li class="py-3 sm:py-4">
                         <div class="flex justify-between items-center border rounded-lg p-4 hover:bg-blue-100">
                             <div class="flex justify-center items-center gap-5">
-                                <button><i class="fa-solid fa-circle-check"></i></button>
-                                <p class="text-xl font-medium">list element</p>
+                                <button class="text-2xl"><i class="fa-solid fa-circle-check"></i></button>
+                                <p class="capitalize font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
-                                <ul class="flex gap-5 text-2xl">
+                                <ul class="flex gap-5 text-xl">
                                     <li><button><i class="fa-solid fa-pen-to-square"></i></button></li>
                                     <li><button><i class="fa-solid fa-trash"></i></button></li>
                                 </ul>
@@ -59,11 +59,11 @@
                     <li class="py-3 sm:py-4">
                         <div class="flex justify-between items-center border rounded-lg p-4 hover:bg-blue-100">
                             <div class="flex justify-center items-center gap-5">
-                                <button><i class="fa-solid fa-circle-check"></i></button>
-                                <p class="text-xl font-medium">list element</p>
+                                <button class="text-2xl"><i class="fa-solid fa-circle-check"></i></button>
+                                <p class="capitalize font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
-                                <ul class="flex gap-5 text-2xl">
+                                <ul class="flex gap-5 text-xl">
                                     <li><button><i class="fa-solid fa-pen-to-square"></i></button></li>
                                     <li><button><i class="fa-solid fa-trash"></i></button></li>
                                 </ul>
@@ -73,14 +73,15 @@
                 </ul>
             </div>
         </div>
-        <div class="bg-gray-200 rounded-b-lg p-5 text-2xl">
-           <form class="flex justify-center" action="">
+        <div class="flex justify-center bg-gray-200 rounded-b-lg p-5">
+           <form action="">
             <div class="bg-white rounded-full border-4 border-blue-400">
-                <input class="rounded-full outline-none w-48 md:w-72 p-4" type="text">
-                <button class="mx-2 p-5"><i class="fa-solid fa-circle-plus text-blue-400"></i></button>
+             <input class="outline-none rounded-full" type="text">
+             <button class="p-2"><i class="fa-solid fa-circle-plus text-blue-400"></i></button>
             </div>
            </form>
         </div>
+
     </section>
 </template>
 
