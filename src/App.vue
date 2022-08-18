@@ -1,6 +1,5 @@
 <template>
   <section>
-    <!-- <Nav /> -->
     <Header />
     <RouterView />
   </section>

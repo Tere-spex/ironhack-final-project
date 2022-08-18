@@ -1,25 +1,24 @@
 <template>
-  <section class="flex flex-col h-[calc(100vh-65px)] justify-center items-center text-lg text-gray-500 font-semibold bg-white">
-    <div class="max-w-2xl mx-auto text-gray-500 font-semibold">
+    <section class="max-w-2xl mx-auto text-gray-500 font-semibold p-10">
         <div class="bg-gray-200 rounded-t-lg p-5">
-            <ul class="flex gap-10">
+            <ul class="flex justify-between">
                 <li>
-                    <div class="flex flex-row justify-center items-center  bg-blue-400 rounded-full px-4 py-2">
+                    <div class="flex flex-col md:flex-row justify-center items-center">
                         <span class="p-2">Tasks</span>
                         <span class="bg-white py-2 px-4 rounded-full text-xs">0</span>
                     </div>
                 </li>
                  <li>
-                    <div class="flex flex-row justify-center items-center  bg-blue-400 rounded-full px-4 py-2">
-                        <span class="p-2">Tasks Done</span>
+                     <div class="flex flex-col md:flex-row justify-center items-center">
+                        <span class="p-2">Done</span>
                         <span class="bg-white py-2 px-4 rounded-full text-xs">0</span>
                     </div>
                 </li>
                 <li>
-                    <div class="flex flex-row justify-center items-center text-white bg-rose-400 rounded-full px-4 py-2">
-                        <span class="p-2"><i class="fa-solid fa-trash"></i></span>
-                        <span class="py-2 px-4">Tasks</span>
-                    </div>
+                    <button type="submit" class="flex flex-col md:flex-row justify-center items-center">
+                        <span class="p-2">Tasks</span>
+                        <span class="bg-white py-2 px-4 rounded-full text-xs"><i class="fa-solid fa-trash"></i></span>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -27,15 +26,13 @@
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold leading-none">ToDo List</h3>
             </div>
-            <div class="flow-root text-4xl">
+            <div class="text-4xl">
                 <ul role="list">
-                  <li class="py-3 sm:py-4">
-                        <div class="flex items-center space-x-4 border rounded-lg p-4">
-                             <div class="flex-shrink-0">
+                    <li class="py-3 sm:py-4">
+                        <div class="flex justify-between items-center border rounded-lg p-4 hover:bg-blue-100">
+                            <div class="flex justify-center items-center gap-5">
                                 <button><i class="fa-solid fa-circle-check"></i></button>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                               <p class="text-xl font-medium">list element</p>
+                                <p class="text-xl font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
                                 <ul class="flex gap-5 text-2xl">
@@ -46,12 +43,10 @@
                         </div>
                     </li>
                     <li class="py-3 sm:py-4">
-                        <div class="flex items-center space-x-4 border rounded-lg p-4">
-                             <div class="flex-shrink-0">
+                        <div class="flex justify-between items-center border rounded-lg p-4 hover:bg-blue-100">
+                            <div class="flex justify-center items-center gap-5">
                                 <button><i class="fa-solid fa-circle-check"></i></button>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                               <p class="text-xl font-medium">elemento de la lista</p>
+                                <p class="text-xl font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
                                 <ul class="flex gap-5 text-2xl">
@@ -62,12 +57,10 @@
                         </div>
                     </li>
                     <li class="py-3 sm:py-4">
-                        <div class="flex items-center space-x-4 border rounded-lg p-4">
-                             <div class="flex-shrink-0">
+                        <div class="flex justify-between items-center border rounded-lg p-4 hover:bg-blue-100">
+                            <div class="flex justify-center items-center gap-5">
                                 <button><i class="fa-solid fa-circle-check"></i></button>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                               <p class="text-xl font-medium">elemento de la lista</p>
+                                <p class="text-xl font-medium">list element</p>
                             </div>
                             <div class="inline-flex items-center font-semibold">
                                 <ul class="flex gap-5 text-2xl">
@@ -83,13 +76,12 @@
         <div class="bg-gray-200 rounded-b-lg p-5 text-2xl">
            <form class="flex justify-center" action="">
             <div class="bg-white rounded-full border-4 border-blue-400">
-                <input class="rounded-full outline-none w-72 p-4" type="text">
+                <input class="rounded-full outline-none w-48 md:w-72 p-4" type="text">
                 <button class="mx-2 p-5"><i class="fa-solid fa-circle-plus text-blue-400"></i></button>
             </div>
            </form>
         </div>
-    </div>
-  </section>
+    </section>
 </template>
 
 <script>

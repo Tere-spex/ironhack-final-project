@@ -1,5 +1,5 @@
 <template>
-     <div class="flex flex-col h-[calc(100vh-150px)] justify-center items-center text-lg text-gray-500 font-semibold">
+     <div class="flex flex-col h-[calc(100vh-132px)] justify-center items-center text-lg text-gray-500 font-semibold">
         <div class="p-4 max-w-md bg-white border shadow-md sm:p-8 text-gray-500">
             <div class="flex flex-col justify-between items-center">
                 <!-- <h3 class="uppercase text-xl font-bold leading-none">Sign In</h3> -->
@@ -7,6 +7,7 @@
                 <span class="p-2">LOGIN</span>
             </div>
             <form class="flow-root">
+                
                 <ul role="list">
                   <li class="py-3 sm:py-4">
                         <div class="flex items-center space-x-4 border rounded-lg p-2">

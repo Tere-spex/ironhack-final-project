@@ -1,8 +1,8 @@
 <template>
     <section>
         <nav class="flex gap-5 justify-center p-5 uppercase font-bold text-gray-600">
-            <RouterLink :to="`/`">auth</RouterLink> |
-            <RouterLink :to="`/dashboard`">dashboard</RouterLink>
+            <RouterLink :to="`/`">Home</RouterLink> |
+            <RouterLink :to="`/auth`">Auth</RouterLink>
         </nav>
     </section>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-[calc(100vh-150px)] justify-center items-center text-lg text-gray-500 font-semibold">
+    <div class="flex flex-col h-[calc(100vh-132px)] justify-center items-center text-lg text-gray-500 font-semibold">
         <div class="p-4 max-w-md bg-white border shadow-md sm:p-8 text-gray-500">
             <div class="flex flex-col justify-between items-center">
                 <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
