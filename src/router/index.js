@@ -7,6 +7,15 @@ export const routes = [
   {path: "/auth", name: "auth", component: Auth},
 ];
 
+// export const routes = [
+//   {path: "/", name: "Dashboard", component: Dashboard},
+//   {path: "/auth/id:", name: "auth", component: Auth, 
+//   children:[
+//     {path: "/signup", name: "signup", component: SignUp},
+//     {path: "/signin", name: "signIn", component: SignIn},
+//   ]},
+// ];
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_APP_ENV),
   routes,

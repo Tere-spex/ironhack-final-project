@@ -14,7 +14,7 @@ export const useUserStore = defineStore("user", {
       this.user = user;
     },
     async signUp(email, password) {
-      console.log(email, password)
+      // console.log(email, password)
       const { user, error } = await supabase.auth.signUp({
       // username: username,
         email: email,
@@ -25,6 +25,7 @@ export const useUserStore = defineStore("user", {
     },
     // Hacer sign in
     async singIn(email, password){
+      console.log(email, password)
       const { user, session, error } = await supabase.auth.signIn({
         email: 'example@email.com',
         password: 'example-password',
