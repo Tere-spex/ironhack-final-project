@@ -13,8 +13,8 @@ export const useUserStore = defineStore("user", {
       const user = await supabase.auth.user();
       this.user = user;
     },
+    //Register
     async signUp(email, password) {
-      // console.log(email, password)
       const { user, error } = await supabase.auth.signUp({
       // username: username,
         email: email,
@@ -22,16 +22,18 @@ export const useUserStore = defineStore("user", {
       });
       if (error) throw error;
       if (user) this.user = user;
+      console.log(error);
     },
-    // Hacer sign in
-    async singIn(email, password){
-      console.log(email, password)
+
+   //Login
+    async signIn(email, password){
+      // console.log(email, password)
       const { user, session, error } = await supabase.auth.signIn({
-        email: 'example@email.com',
-        password: 'example-password',
+        email: email,//revisar
+        password: password,//revisar
       })
     },
-    // Hacer log out
+    //Logout
     async logOut(){
       const { error } = await supabase.auth.signOut()
     },

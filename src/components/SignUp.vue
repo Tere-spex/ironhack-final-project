@@ -42,13 +42,20 @@
                 </li>
             </ul>
             <div class="text-gray-500">
-                    <div class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-16">
-                        <div class="flex items-center space-x-2">
-                            <input type="checkbox" required>
-                            <span>I Read and Agree to Terms & Conditions</span>
-                        </div>
+                <div class="py-3 sm:py-4">
+                  <div class="flex items-center space-x-16">
+                    <div class="flex items-center space-x-2">
+                      <input type="checkbox" required>
+                      <span>I Read and Agree to Terms & Conditions</span>
                     </div>
+                  </div>
+                </div>
+                <!-- mostrar cuando salte un error o el registro sea correcto-->
+                <div class="hidden py-3 sm:py-4">
+                  <div class="flex items-center space-x-4">
+                    <span class="text-green-500">The account has been created successfully, check your email to confirm the email!</span>
+                    <span>{{error}}</span>
+                  </div>
                 </div>
                 <div class=" flex justify-center py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
@@ -75,10 +82,6 @@ import { useUserStore } from '../store/user'
 export default {
   setup() {
     const user = useUserStore();
-    // const signUp = user.signUp();
-    // const singIn = user.singIn();
-    // const logOut = user.logOut();
-    // return {user, signUp, singIn, logOut}
     return { user }
   },
   data(){
@@ -94,7 +97,8 @@ export default {
             try{
                 await this.user.signUp(this.email, this.password)
                 //Si se ha hecho el registro bien, que me lleve al componente login
-                // router.push('/') ???
+                // router.push({ path: "/signin" });
+                 router.push("/auth/signin")
             } catch(error){
                 console.log(error.message);
             }

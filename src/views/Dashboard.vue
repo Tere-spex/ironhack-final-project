@@ -12,15 +12,21 @@
 </template>
 
 <script>
+//componentes
 import NewTask from '../components/NewTask.vue'
 import TaskItem from '../components/TaskItem.vue';
 import TasksStates from '../components/TasksStates.vue';
+//pinia
+import { useTaskStore } from '../store/task'
 export default {
     components: {
     NewTask,
     TaskItem,
     TasksStates
 },
-
+setup(){
+    const task = useTaskStore();
+    return { task }
+},
 }
 </script>NewTask

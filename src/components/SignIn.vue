@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
+    <div id="signin" class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
         <div class="flex flex-col justify-between items-center">
             <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
             <span class="p-2">LOGIN</span>
@@ -62,6 +62,7 @@
 <script>
 //datos obtenidos desde pinia store
 import { useUserStore } from '../store/user'
+import router from '../router';
 export default {
   setup() {
     const user = useUserStore();
@@ -75,8 +76,14 @@ export default {
   },
   methods:{
     async signIn(){
-        if (this.user) {
-            alert(`hola ${this.email}`)
+        //si usuario existente 
+        //se dirigira al ToDo List al dar click al boton login
+        try{
+            await this.user.signIn(this.email, this.password);
+            console.log("hola")
+            router.push("/")
+        } catch(error){
+            console.log(error.message);
         }
     }
   }

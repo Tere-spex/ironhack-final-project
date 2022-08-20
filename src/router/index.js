@@ -1,20 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Auth from "../views/Auth.vue";
 import Dashboard from "../views/Dashboard.vue";
+import SignIn from '../components/SignIn.vue';
+import SignUp from '../components/SignUp.vue';
 
 export const routes = [
   {path: "/", name: "Dashboard", component: Dashboard},
   {path: "/auth", name: "auth", component: Auth},
+  {path: "/auth/signin", name: "signin", component: SignIn},
+  {path: "/auth/signup", name: "signup", component: SignUp},
 ];
-
-// export const routes = [
-//   {path: "/", name: "Dashboard", component: Dashboard},
-//   {path: "/auth/id:", name: "auth", component: Auth, 
-//   children:[
-//     {path: "/signup", name: "signup", component: SignUp},
-//     {path: "/signin", name: "signIn", component: SignIn},
-//   ]},
-// ];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_APP_ENV),
