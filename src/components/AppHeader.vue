@@ -8,21 +8,25 @@
             <span class="ml-3 text-sm hidden md:block font-medium text-gray-900 dark:text-gray-300">Dark</span>
         </label>
     </header>
-    <div class="p-5 bg-gray-300">
-        <span>Hello {{user.user.email}}!</span>
+    <div class="p-5 bg-slate-300">
+        <span>Hello {{user.user.email}}</span>
     </div>
 </template>
 
 <script>
-import Nav from "../components/Nav.vue";
 import { useUserStore } from '../store/user'
+import Nav from "../components/Nav.vue";
 export default {
-    components:{
-        Nav,
-    },
-      setup() {
+  setup() {
     const user = useUserStore();
     return { user }
   },
+  components:{
+    Nav,
+  }
 }
 </script>
+
+<style>
+
+</style>

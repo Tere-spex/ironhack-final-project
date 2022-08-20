@@ -76,11 +76,8 @@ export default {
   },
   methods:{
     async signIn(){
-        //si usuario existente 
-        //se dirigira al ToDo List al dar click al boton login
         try{
             await this.user.signIn(this.email, this.password);
-            console.log("hola")
             router.push("/")
         } catch(error){
             console.log(error.message);
