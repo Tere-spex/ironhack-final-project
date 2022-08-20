@@ -67,7 +67,7 @@
                 <div class=" flex justify-center py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
                         <div>
-                            <span>Already have an account? <RouterLink class="text-blue-300 font-normal" :to="`/`">Sing in!</RouterLink></span>
+                            <span>Already have an account? <RouterLink class="text-blue-300 font-normal" :to="`/auth/signin`">Sing in!</RouterLink></span>
                         </div>
                     </div>
                 </div>

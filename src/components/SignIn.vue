@@ -50,7 +50,7 @@
                 <div class=" flex justify-center py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
                         <div>
-                            <span>Not registered? <RouterLink class="text-blue-300 font-normal" :to="`/`">Create an acount!</RouterLink></span>
+                            <span>Not registered? <RouterLink class="text-blue-300 font-normal" :to="`/auth/signup`">Create an acount!</RouterLink></span>
                         </div>
                     </div>
                 </div>
