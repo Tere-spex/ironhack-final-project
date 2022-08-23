@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-2xl mx-auto text-gray-500 font-semibold p-5 md:p-10">
+    <section class="bg-white dark:bg-black max-w-2xl mx-auto text-gray-500 font-semibold p-5 md:p-10">
         <new-task />
         <div class="bg-white border shadow-md sm:p-8 text-gray-500 p-5">
             <div class="flex justify-between items-center mb-4">
