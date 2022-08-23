@@ -22,10 +22,13 @@
                     <div class="flex items-center space-x-4 border rounded-lg p-2">
                         <div class="space-x-4">
                             <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-64 md:w-72" type="password" v-model="password" min="6" placeholder="Password">
+                            <input class="outline-none w-64 md:w-72" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
                         </div>
-                        <div>
+                        <div @click="showPassword" v-if="passwordVisibility === 'password'">
                             <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div @click="hidePassword" v-if="passwordVisibility === 'text'">
+                            <i class="fa-solid fa-eye-slash"></i>
                         </div>
                     </div>
                 </li>
@@ -33,10 +36,13 @@
                     <div class="flex items-center space-x-4 border rounded-lg p-2">
                         <div class="space-x-4">
                             <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-64 md:w-72" type="password" v-model="repeatPassword" min="6" placeholder="Repeat Password">
+                            <input class="outline-none w-64 md:w-72" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
                         </div>
-                        <div>
+                        <div @click="showConfPassword" v-if="confPasswordVisibility === 'password'">
                             <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div @click="hideConfPassword" v-if="confPasswordVisibility === 'text'">
+                            <i class="fa-solid fa-eye-slash"></i>
                         </div>
                     </div>
                 </li>
@@ -89,6 +95,8 @@ export default {
         email: "",
         password: "",
         repeatPassword: "",
+        passwordVisibility: "password",
+        confPasswordVisibility: "password",
     }
   },
   methods:{
@@ -97,13 +105,24 @@ export default {
             try{
                 await this.user.signUp(this.email, this.password)
                 //Si se ha hecho el registro bien, que me lleve al componente login
-                // router.push({ path: "/signin" });
-                 router.push("/auth/signin")
+                 this.$router.push("/auth/signin")
             } catch(error){
                 console.log(error.message);
             }
         }
-    }
+    },
+    showPassword(){
+        this.passwordVisibility = 'text';
+    },
+    hidePassword(){
+        this.passwordVisibility = 'password'
+    },
+    showConfPassword(){
+        this.confPasswordVisibility = 'text';
+    },
+    hideConfPassword(){
+        this.confPasswordVisibility = 'password'
+    },
   }
 }
 </script>

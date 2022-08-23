@@ -1,5 +1,5 @@
 <template>
-    <header class="flex flex-row justify-between items-center p-5 bg-gray-200">
+    <header class="flex flex-row justify-between items-center p-5 bg-gray-100">
         <div><img class="w-24" src="https://images.squarespace-cdn.com/content/v1/571fc0ea1d07c0fd6d72c167/1461887197044-7RHEUQBY7XNIQCWHZDUV/planning+icon.png" alt=""></div>
         <Nav />
         <label for="large-toggle" class="inline-flex relative items-center cursor-pointer">
@@ -8,8 +8,9 @@
             <span class="ml-3 text-sm hidden md:block font-medium text-gray-900 dark:text-gray-300">Dark</span>
         </label>
     </header>
-    <div class="p-5 bg-slate-300">
-        <span>Hello {{user.user.email}}</span>
+    <div class="p-5 bg-slate-200 text-blue-400 font-semibold">
+        <span  v-if="email">Hello, {{email}}!</span>
+        <span v-else><RouterLink class="underline" :to="`/auth`">Create an acount!</RouterLink></span>
     </div>
 </template>
 
@@ -23,10 +24,17 @@ export default {
   },
   components:{
     Nav,
+  },
+  data(){ 
+    return {
+        email: '',
+    }
+  },
+  mounted() {
+    const session = JSON.parse(localStorage.getItem('supabase.auth.token'))
+    const email = session['currentSession'].user.email
+    this.email = email.slice(0, email.indexOf('@'))
   }
+  
 }
 </script>
-
-<style>
-
-</style>

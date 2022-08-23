@@ -1,6 +1,6 @@
 <template>
     <div class="textlg">
-        <ul role="list">
+        <ul>
             <li class="py-3 sm:py-4">
                 <div class="flex justify-between items-center border rounded-lg p-4 hover:text-blue-400">
                     <div class="flex justify-center items-center gap-5">

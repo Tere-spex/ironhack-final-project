@@ -19,13 +19,16 @@
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
-                    <div class="flex items-center space-x-4 border rounded-lg p-2">
+                         <div class="flex items-center space-x-4 border rounded-lg p-2">
                         <div class="space-x-4">
                             <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-64 md:w-72" type="password" v-model="password" min="6" placeholder="Password">
+                            <input class="outline-none w-64 md:w-72" :type="visibility" v-model="password" min="6" placeholder="Password">
                         </div>
-                        <div>
+                        <div @click="showPassword" v-if="visibility === 'password'">
                             <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div @click="hidePassword" v-if="visibility === 'text'">
+                            <i class="fa-solid fa-eye-slash"></i>
                         </div>
                     </div>
                 </li>
@@ -72,17 +75,22 @@ export default {
     return{
         email: "",
         password: "",
+        visibility: "password",
     }
   },
   methods:{
     async signIn(){
-        try{
-            await this.user.signIn(this.email, this.password);
+        const res = await this.user.signIn(this.email, this.password);
+        if (res.status === 200) {
             router.push("/")
-        } catch(error){
-            console.log(error.message);
         }
-    }
-  }
+    },
+    showPassword(){
+        this.visibility = 'text';
+    },
+    hidePassword(){
+        this.visibility = 'password'
+    },
+  },
 }
 </script>
