@@ -1,5 +1,3 @@
-// /store/task.js
-
 import { defineStore } from "pinia";
 import { supabase } from "../supabase";
 
@@ -7,27 +5,29 @@ export const useTaskStore = defineStore("tasks", {
   state: () => ({
     tasks: null,
   }),
-  //GET (obtener las tareas)
   actions: {
+    //GET (obtener las tareas)
     async fetchTasks() {
-      const { data: tasks, error } = await supabase
+      const { data: tasks } = await supabase
         .from("tasks")
         .select("*")
         .order("id", { ascending: false });
-      this.tasks = tasks;
-      if (error) {
+      
+        this.tasks = tasks;
+      
+        if (error) {
         console.log('error', error);
       }
     },
-    // Hacer POST (crear la tarea)
-    async createTask(taskTitle) {
-        const { data: task, error } = await supabase
-        .from('tasks')
-        .insert({ title: taskTitle})
-        .single();
+    //POST (crear la tarea)
+    async createTask(taskTitle, userid) {
+      const { tasks, error } = await supabase
+      .from("tasks")
+      .insert([{ title: taskTitle, is_complete: false, user_id:userid }])
         if (error) {
           console.log('error', error);
         }
+        this.fetchTasks();
     }
     
     // Hacer el PUT (edit)
