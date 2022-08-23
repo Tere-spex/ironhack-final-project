@@ -35,6 +35,10 @@ export const useTaskStore = defineStore("tasks", {
       .from("tasks")
       .update({ title: taskTitle, })
       .match({ title: taskTitle, })
+      if (error) {
+        console.log('error', error);
+      }
+      this.fetchTasks();
     },
     // Hacer el delete
     async deleteTask(taskid){
