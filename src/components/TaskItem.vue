@@ -11,7 +11,7 @@
                     <div class="inline-flex items-center font-semibold">
                         <ul class="flex gap-5 text-xl">
                             <li><button class="hover:text-green-400"><i class="fa-solid fa-pen-to-square"></i></button></li>
-                            <li><button class="hover:text-red-500"><i class="fa-solid fa-trash"></i></button></li>
+                            <li><button @click="deleteTask(task.id)" class="hover:text-red-500"><i class="fa-solid fa-trash"></i></button></li>
                         </ul>
                     </div>
                 </div>
@@ -35,7 +35,9 @@ export default {
     }
   },
   methods:{
-
+    async deleteTask(id){
+         await this.tasks.deleteTask(id)
+    },
   },
    async mounted(){  
         await this.tasks.fetchTasks();
