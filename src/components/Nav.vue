@@ -2,8 +2,8 @@
     <section>
         <nav class="flex gap-5 justify-center p-5 uppercase font-bold text-gray-600">
             <RouterLink :to="`/`">Home</RouterLink> |
-            <RouterLink v-if="!user" :to="`/auth`">Auth</RouterLink><span v-if="!user">|</span>
-            <button @click="logOut">LOGOUT</button>
+            <RouterLink :to="`/auth`">Auth</RouterLink><span v-if="!user">|</span>
+            <button v-if="!user" @click="logOut">LOGOUT</button>
         </nav>
     </section>
 </template>
