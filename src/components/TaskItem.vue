@@ -1,8 +1,9 @@
 <template>
-  <div class="textlg overflow-y-scroll h-[calc(100vh-140px)] px-5">
-    <ul v-if="tasks.tasks">
-      <li v-for="task in tasks.tasks" :key="task.id" class="py-3 sm:py-4">
-        <div class="flex justify-between items-center border-b-2 pb-2 hover:text-blue-400">
+<!-- h-[calc(100vh-140px)] -->
+  <div class="overflow-y-scroll px-5">
+    <ul class="h-[calc(100vh-282px)]" v-if="tasks.tasks">
+      <li v-for="task in tasks.tasks" :key="task.id" class="py-3 sm:py-4 border-b-2">
+        <div class="flex justify-between items-center pb-2 hover:text-blue-400">
           <div class="flex justify-center items-center w-full">
             <button class="text-2xl"><i class="hover:text-green-400 fa-solid fa-circle-check"></i></button>
             <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{task.title}}</p>

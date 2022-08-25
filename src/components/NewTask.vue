@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between items-center border-y-2 p-5">
-    <form @submit.prevent="submitTask"  class="flex justify-left items-center w-full">
+  <div class="flex justify-between items-center p-5">
+    <form @submit.prevent="submitTask"  class="flex justify-left items-center w-full border-b-2 p-5">
       <button class="text-blue-400"><i class="fa-solid fa-circle-plus text-2xl"></i></button>
       <input v-model="taskTitle" class="outline-none mx-2 px-2  w-full" type="text" placeholder="Add task">
        <!-- <input v-else class="mx-2 px-2 w-45" v-model="newTaskTitle" placeholder="Editar tarea" type="text"></input> -->
