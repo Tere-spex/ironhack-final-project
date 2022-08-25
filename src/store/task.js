@@ -40,12 +40,12 @@ export const useTaskStore = defineStore("tasks", {
       }
       this.fetchTasks();
     },
-      // Hacer el PUT / Actualizar tarea NO FUNCIONA 💩💩💩
-      async updateTask( taskTitle, newTaskTitle){
+      // Hacer el PUT / Actualizar tarea
+      async updateTask( taskTitle, taskId){
         const { tasks, error } = await supabase
         .from("tasks")
         .update({ title: taskTitle })
-        .match({ title: newTaskTitle})
+        .match({ id: taskId})
         if (error) {
           console.log('error', error);
         }
