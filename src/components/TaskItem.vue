@@ -1,7 +1,7 @@
 <template>
 <!-- h-[calc(100vh-140px)] -->
   <div class="overflow-y-scroll px-5">
-    <ul class="h-[calc(100vh-282px)]" v-if="tasks.tasks">
+    <ul class="md:h-[calc(100vh-282px)]" v-if="tasks.tasks">
       <li v-for="task in tasks.tasks" :key="task.id" class="py-3 sm:py-4 border-b-2">
         <div class="flex justify-between items-center pb-2 hover:text-blue-400">
           <div class="flex justify-center items-center w-full">
