@@ -40,17 +40,27 @@ export const useTaskStore = defineStore("tasks", {
       }
       this.fetchTasks();
     },
-      // Hacer el PUT / Actualizar tarea
-      async updateTask( taskTitle, taskId){
-        const { tasks, error } = await supabase
-        .from("tasks")
-        .update({ title: taskTitle })
-        .match({ id: taskId})
-        if (error) {
-          console.log('error', error);
-        }
-        this.fetchTasks();
-      },
-    // Hacer el PUT (cambiar entre completada y pendiente)
+    // Hacer el PUT / Actualizar tarea
+    async updateTask( taskTitle, taskId){
+      const { tasks, error } = await supabase
+      .from("tasks")
+      .update({ title: taskTitle })
+      .match({ id: taskId})
+      if (error) {
+        console.log('error', error);
+      }
+      this.fetchTasks();
+    },
+    // Hacer el PUT (cambiar entre completada y pendiente) ❓❓❓
+    async changeTaskState( state, taskId){
+      const { tasks, error } = await supabase
+      .from("tasks")
+      .update({ is_complete: state })
+      .match({ id: taskId})
+      if (error) {
+        console.log('error', error);
+      }
+      this.fetchTasks();
+    },
   },
 });

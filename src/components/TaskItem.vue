@@ -5,6 +5,7 @@
       <li v-for="task in tasks.tasks" :key="task.id" class="py-3 sm:py-4 border-b-2">
         <Task :id="task.id" 
         :title="task.title"
+        :is_complete="task.is_complete"
         />
       </li>
     </ul>

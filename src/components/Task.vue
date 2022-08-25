@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between items-center pb-2 hover:text-blue-400">
     <div class="flex justify-center items-center w-full">
-       <button class="text-2xl"><i class="hover:text-green-400 fa-solid fa-circle-check"></i></button>
+       <button @click="changeTaskState(id)" class="text-2xl"><i class="hover:text-green-400 fa-solid fa-circle-check"></i></button>
        <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{title}}</p>
        <input v-else class="mx-2 px-2 w-full" v-model="newTaskTitle" placeholder="Editar tarea" type="text">
     </div>
@@ -23,6 +23,7 @@ export default {
   props:{
     id: "",
     title: "",
+    is_complete: "",
   },
   data(){
     return {
@@ -44,6 +45,15 @@ export default {
         }else{
             this.editable = true;
         }
+    },
+    // cambiar el estado de la tarea complete true or false ❓❓❓
+    async changeTaskState(id){
+        await this.tasks.changeTaskState(this.is_complete, id)
+         if (!this.is_complete) {
+            this.this.state.first = true;
+        }
+       console.log(this.is_complete)
+       console.log(id)
     },
   },
   //Solicito las tareas para que se rendericen al cargar la pagina del usuario
