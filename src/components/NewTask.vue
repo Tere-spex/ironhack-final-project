@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center border-2 p-5 hover:text-blue-400">
+  <div class="flex justify-between items-center border-y-2 p-5">
     <form @submit.prevent="submitTask"  class="flex justify-left items-center w-full">
       <button class="text-blue-400"><i class="fa-solid fa-circle-plus text-2xl"></i></button>
       <input v-model="taskTitle" class="outline-none mx-2 px-2  w-full" type="text" placeholder="Add task">

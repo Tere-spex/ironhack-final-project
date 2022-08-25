@@ -4,6 +4,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {},
+    fontFamily:{
+      'sans': ['ui-sans-serif', 'system-ui'],
+      'serif': ['Poppins']//cambio la serif para que ahora se aplique como poppins
+    }
   },
   plugins: [],
 };

@@ -1,5 +1,7 @@
 <template>
-    <div id="signin" class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
+ <!-- h-[calc(100vh-200px)]  -->
+ <div class="flex flex-col justify-center items-center h-[calc(100vh-168px)]">
+    <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
         <div class="flex flex-col justify-between items-center">
             <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
             <span class="p-2">LOGIN</span>
@@ -35,8 +37,8 @@
             </ul>
             <div class="text-gray-500">
                     <div class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-16">
-                        <div class="flex items-center space-x-2">
+                    <div class="flex justify-between space-x-16">
+                        <div class="flex space-x-2">
                             <input type="checkbox">
                             <span>Remember me</span>
                         </div>
@@ -60,6 +62,8 @@
             </div>
         </form>
     </div>
+ </div>
+    
 </template>
 
 <script>

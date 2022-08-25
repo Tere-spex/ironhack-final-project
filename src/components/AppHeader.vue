@@ -1,17 +1,13 @@
 <template>
-    <header class="p-5 font-semibold bg-gray-200 text-gray-500">
+    <header class="p-5 font-semibold bg-gradient-to-r from-pink-300 via-purple-400 to-blue-300 text-gray-500">
       <div class="flex justify-between">
-        <RouterLink class="text-xl font-bold" :to="`/`">To-Do List</RouterLink><!--Logo-->
+        <RouterLink class="text-4xl font-bold text-blue-500" :to="`/`">To-Do</RouterLink><!--Logo-->
         <form @submit.prevent="darkMode" for="large-toggle" class="inline-flex relative items-center cursor-pointer">
           <button v-if="!light"><i class="fa-solid fa-sun text-yellow-100 text-2xl"></i></button>
           <button v-else><i class="fa-solid fa-moon text-gray-600 text-2xl"></i></button>
         </form>
     </div>
-    <div class="flex justify-end pt-16">
-      <!-- <span  v-if="email">Hello, {{email}}!</span> -->
-      <!-- <span v-else><RouterLink class="underline text-blue-700" :to="`/auth`">Create an acount!</RouterLink></span> -->
-      <Nav />
-    </div>
+    <Nav />
   </header>
 </template>
 
