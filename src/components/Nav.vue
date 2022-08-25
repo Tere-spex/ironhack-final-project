@@ -1,11 +1,8 @@
 <template>
-    <section>
-        <nav class="flex gap-5 justify-center p-5 uppercase font-bold text-gray-600">
-            <RouterLink :to="`/`">Home</RouterLink> |
-            <RouterLink :to="`/auth`">Auth</RouterLink><span v-if="!user">|</span>
-            <button v-if="!user" @click="logOut">LOGOUT</button>
-        </nav>
-    </section>
+  <nav class="flex gap-2 justify-center uppercase font-bold text-gray-500">
+    <RouterLink :to="`/auth/signin`">login</RouterLink> |
+    <button @click="logOut">LOGOUT</button>
+  </nav>
 </template>
 
 <script>
@@ -17,14 +14,14 @@ export default {
   },
   methods:{
     async logOut(){
-            try{
-                await this.user.logOut(this.email, this.password)
-                //Si se ha hecho el registro bien, que me lleve al componente login
-                 router.push("/auth/signup")
-            } catch(error){
-                console.log(error.message);
-            }
-        }
+      try{
+        await this.user.logOut(this.email, this.password)
+          //Si se ha hecho el registro bien, que me lleve al componente login
+          router.push("/auth/signup")
+        }catch(error){
+          console.log(error.message);
+      }
     }
+  }
 }
 </script>

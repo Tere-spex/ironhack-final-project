@@ -1,14 +1,16 @@
 <template>
-    <section class="bg-white dark:bg-black max-w-2xl mx-auto text-gray-500 font-semibold p-5 md:p-10">
-        <new-task />
-        <div class="bg-white border shadow-md sm:p-8 text-gray-500 p-5">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold leading-none">ToDo List</h3>
-            </div>
-            <TaskItem />
-        </div>
-        <tasks-states />
-    </section>
+  <!-- <div class="md:grid md:grid-cols-2 bg-white dark:bg-black max-w-2xl mx-auto text-gray-500 font-semibold md:p-10"> -->
+    <div class="md:grid md:grid-cols-3 bg-white text-gray-500 font-semibold md:text-lg">
+    <tasks-states />
+    <div class="col-span-2">
+      <div class="py-16 px-5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-white font-semibold">
+        <h1 class="text-2xl">To-Do List</h1>
+        <!-- <new-task /> -->
+      </div>
+      <new-task />
+      <TaskItem />
+    </div>
+  </div>
 </template>
 
 <script>
