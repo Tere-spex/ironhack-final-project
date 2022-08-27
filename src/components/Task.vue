@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center pb-2 hover:text-blue-400">
+  <div class="flex justify-between items-center p-2 hover:bg-gray-200">
     <div class="flex justify-center items-center w-full">
        <button @click="changeTaskState(id)" class="text-2xl"><i class="hover:text-green-400 fa-solid fa-circle-check"></i></button>
        <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{title}}</p>
@@ -30,6 +30,7 @@ export default {
       taskList: null,
       editable: false,
       newTaskTitle: "",
+      state: "",
     }
   },
   methods:{
@@ -46,14 +47,20 @@ export default {
             this.editable = true;
         }
     },
-    // cambiar el estado de la tarea complete true or false ❓❓❓
+    // Hacer el PUT (cambiar entre completada y pendiente) ❓❓❓ 
     async changeTaskState(id){
-        await this.tasks.changeTaskState(this.is_complete, id)
-         if (!this.is_complete) {
-            this.this.state.first = true;
-        }
-       console.log(this.is_complete)
-       console.log(id)
+      console.log(this.is_complete)
+      console.log(id)
+      
+      if (this.is_complete === false) {
+        this.state = true;
+        await this.tasks.changeTaskState(this.state, id)
+        console.log('entro en el if');
+      }else{
+        this.state = false;
+        await this.tasks.changeTaskState(this.state, id)
+        console.log('entro en el else');
+      }
     },
   },
   //Solicito las tareas para que se rendericen al cargar la pagina del usuario
