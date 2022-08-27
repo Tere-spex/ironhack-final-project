@@ -1,7 +1,10 @@
 <template>
   <div class="flex justify-between items-center p-2 hover:bg-gray-200">
     <div class="flex justify-center items-center w-full">
-       <button @click="changeTaskState(id)" class="text-2xl"><i class="hover:text-green-400 fa-solid fa-circle-check"></i></button>
+       <button @click="changeTaskState(id)" class="text-2xl">
+         <i v-if="is_complete === true" class="text-green-400 hover:text-green-400 fa-solid fa-circle-check"></i>
+         <i v-else class="text-gray-600 hover:text-green-400 fa-solid fa-circle-check"></i>
+        </button>
        <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{title}}</p>
        <input v-else class="mx-2 px-2 w-full" v-model="newTaskTitle" placeholder="Editar tarea" type="text">
     </div>
@@ -27,7 +30,7 @@ export default {
   },
   data(){
     return {
-      taskList: null,
+      taskList: null, //Lo estoy utilizando en el mounted
       editable: false,
       newTaskTitle: "",
       state: "",
