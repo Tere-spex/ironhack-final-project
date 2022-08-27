@@ -2,8 +2,8 @@
   <div class="flex justify-between items-center p-2 hover:bg-gray-200">
     <div class="flex justify-center items-center w-full">
        <button @click="changeTaskState(id)" class="text-2xl">
-         <i v-if="is_complete === true" class="text-green-400 hover:text-green-400 fa-solid fa-circle-check"></i>
-         <i v-else class="text-gray-600 hover:text-green-400 fa-solid fa-circle-check"></i>
+         <i :class="`text-${!is_complete ?'gray-400' : 'green-600'} fa-solid fa-circle-check`"></i>
+         <!-- <i v-else class="text-gray-600 hover:text-green-400 fa-solid fa-circle-check"></i> -->
         </button>
        <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{title}}</p>
        <input v-else class="mx-2 px-2 w-full" v-model="newTaskTitle" placeholder="Editar tarea" type="text">
@@ -33,7 +33,6 @@ export default {
       taskList: null, //Lo estoy utilizando en el mounted
       editable: false,
       newTaskTitle: "",
-      state: "",
     }
   },
   methods:{
@@ -56,12 +55,10 @@ export default {
       console.log(id)
       
       if (this.is_complete === false) {
-        this.state = true;
-        await this.tasks.changeTaskState(this.state, id)
+        await this.tasks.changeTaskState(true, id)
         console.log('entro en el if');
       }else{
-        this.state = false;
-        await this.tasks.changeTaskState(this.state, id)
+        await this.tasks.changeTaskState(false, id)
         console.log('entro en el else');
       }
     },
