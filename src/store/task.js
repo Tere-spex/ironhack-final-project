@@ -4,6 +4,8 @@ import { supabase } from "../supabase";
 export const useTaskStore = defineStore("tasks", {
   state: () => ({
     tasks: null,
+    completed: null,
+    uncompleted: null,
   }),
   actions: {
     //GET (obtener las tareas)
@@ -14,6 +16,9 @@ export const useTaskStore = defineStore("tasks", {
         .order("id", { ascending: false });
       
         this.tasks = tasks;
+        //Para separar las tareas según su estado
+        this.completed = tasks.filter(task => task.is_complete === true)
+        this.uncompleted = tasks.filter(task => task.is_complete === false)
       
         if (error) {
         console.log('error', error);

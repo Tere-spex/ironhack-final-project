@@ -8,10 +8,10 @@
       <i  v-else class="fa-solid fa-arrow-up"></i>
     </button>
   </div>
-  <nav class="container flex md:justify-center sm:justify-end mx-auto bg-white">
+  <nav class="container flex md:justify-center sm:justify-endn px-2 bg-white">
     <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="absolute top-38 left-0 flex-col p-5 gap-5 border-r-2 w-56 h-full md:flex bg-white"> -->
     <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col fixed top-30 left-0 transition-all z-50 w-full p-5 gap-5 bg-white"> -->
-    <ul :class="showMenu ? 'flex' : 'hidden'" class=" flex-col p-5 gap-5 border-r-2 w-full md:flex font-normal">
+    <ul :class="showMenu ? 'flex' : 'hidden'" class=" flex-col p-5 gap-5 md:border-r-2 w-full md:flex font-normal">
       <li class="flex gap-5">
         <!-- <span class="bg-green-300 rounded-full w-20 h-20"></span> AVATAR ???????? -->
         <div>
@@ -27,17 +27,7 @@
           <span>All</span>
         </div>
         <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <!-- <span>{{tasks.tasks.length}}</span> -->
-          <span>{{allTasks}}</span>
-        </div>
-      </li>
-      <li class="flex flex-row justify-between items-center">
-        <div class="flex flex-row justify-center items-center">
-          <span class="pr-3"><i class="fa-regular fa-star text-yellow-400 text-2xl"></i> </span>
-          <span>Important</span>
-        </div>
-        <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{}}</span>
+          <span>{{numberOfTasks}}</span>
         </div>
       </li>
       <li class="flex flex-row justify-between items-center">
@@ -46,9 +36,27 @@
           <span>Complited</span>
         </div>
         <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{}}</span>
+          <span>{{completedTasks}}</span>
         </div>
       </li>
+      <li class="flex flex-row justify-between items-center">
+        <div class="flex flex-row justify-center items-center">
+          <span class="pr-3"><i class="fa-regular fa-circle-xmark text-red-400 text-2xl"></i> </span>
+          <span>Uncompleted</span>
+        </div>
+        <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
+          <span>{{uncompletedTasks}}</span>
+        </div>
+      </li>
+      <!-- <li class="flex flex-row justify-between items-center">
+        <div class="flex flex-row justify-center items-center">
+          <span class="pr-3"><i class="fa-regular fa-star text-yellow-400 text-2xl"></i> </span>
+          <span>Important</span>
+        </div>
+        <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
+          <span>{{}}</span>
+        </div>
+      </li> -->
     </ul>
   </nav>
 </template>
@@ -61,32 +69,60 @@ export default {
   setup(){
     const tasks = useTaskStore();
     const user = useUserStore();
-    return { user, tasks }
+    const completed = useTaskStore();
+    const uncompleted = useTaskStore();
+    return { user, tasks, completed, uncompleted }
   },
   data(){
     return {
       newTask: "",
       userName: "",
       email: '',
+      numberOfTasks: null,
+      completedTasks: null,
+      uncompletedTasks: null,
       showMenu: false,
-      allTasks: "",
+      taskList: null, //Lo estoy utilizando en el mounted
     }
   },
   methods:{
-    getAllTasks(){
-      const allTasks = tasks.tasks.lenght
-      return allTasks;
-    },
-    getCompletedTasks(){
-      const completedTasks = allTasks.filter(task => task.is_complete === true)
-      console.log(completedTasks);
-    },
+    // async getAllTasks(){
+    //   const numberOfTasks = this.taskList;
+    //   // console.log(numberOfTasks);
+    //   return numberOfTasks.length;
+    // },
+    // getCompletedTasks(){
+    //   const completedTasks = this.taskList.filter(task => task.is_complete === true)
+    //   console.log(completedTasks);
+    //   return completedTasks.length
+    // },
+    // getUncompletedTasks(){
+    //   const uncompletedTasks = this.taskList.filter(task => task.is_complete === false)
+    //   console.log(uncompletedTasks);
+    //   return uncompletedTasks.length
+    // },
   },
-  mounted() {
+  async mounted() {
     const session = JSON.parse(localStorage.getItem('supabase.auth.token'));
+
     const email = session['currentSession'].user.email;
     this.userName = email.slice(0, email.indexOf('@'));
     this.email = email;
+    
+    await this.tasks.fetchTasks();
+    this.taskList = this.tasks.tasks;
+
+    this.numberOfTasks = this.taskList.length;
+    this.completedTasks = this.tasks.completed.length;
+    this.uncompletedTasks = this.tasks.uncompleted.length;
+    
+    // = this.tasks.completedTasks.length;
+    
+    // this.uncompletedTasks = this.getUncompletedTasks();
+
+    // this.getAllTasks();
+    // this.getCompletedTasks();
+    // this.getUncompletedTasks()
   },
 }
 </script>

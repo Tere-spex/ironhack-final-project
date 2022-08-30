@@ -50,15 +50,15 @@ export default {
     },
     // Hacer el PUT (cambiar entre completada y pendiente)
     async changeTaskState(id){
-      console.log(this.is_complete)
-      console.log(id)
+      // console.log(this.is_complete)
+      // console.log(id)
       
       if (this.is_complete === false) {
         await this.tasks.changeTaskState(true, id)
-        console.log('entro en el if');
+        // console.log('entro en el if');
       }else{
         await this.tasks.changeTaskState(false, id)
-        console.log('entro en el else');
+        // console.log('entro en el else');
       }
     },
   },

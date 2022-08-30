@@ -2,7 +2,13 @@
 <!-- h-[calc(100vh-140px)] -->
   <div class="overflow-y-scroll px-5">
     <ul class="md:h-[calc(100vh-282px)]" v-if="tasks.tasks">
-      <li v-for="task in tasks.tasks" :key="task.id" class="py-3 sm:py-4 border-b-2">
+      <li v-for="task in tasks.uncompleted" :key="task.id" class="py-3 sm:py-4 border-b-2">
+        <Task :id="task.id" 
+        :title="task.title"
+        :is_complete="task.is_complete"
+        />
+      </li>
+      <li v-for="task in tasks.completed" :key="task.id" class="py-3 sm:py-4 border-b-2">
         <Task :id="task.id" 
         :title="task.title"
         :is_complete="task.is_complete"
@@ -19,7 +25,9 @@ import Task from './Task.vue'
 export default {
     setup() {
         const tasks = useTaskStore();
-        return { tasks };
+        const completed = useTaskStore();
+        const uncompleted = useTaskStore();
+        return { tasks, completed, uncompleted };
     },
     //Solicito las tareas para que se rendericen al cargar la pagina del usuario
     async mounted() {
