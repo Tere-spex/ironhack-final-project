@@ -1,9 +1,11 @@
 <template>  
-  <div class="flex lg:hidden">
-    <button @click="showMenu = !showMenu" class="space-y-2 p-5">
+  <div class="flex lg:hidden bg-gray-100">
+    <button @click="showMenu = !showMenu" class="space-y-2 px-5 py-3 bg-gray-300 rounded-full ml-5 my-2">
+      <!-- <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
       <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
-      <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
-      <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
+      <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span> -->
+      <i  v-if="!showMenu" class="fa-solid fa-arrow-down"></i>
+      <i  v-else class="fa-solid fa-arrow-up"></i>
     </button>
   </div>
   <nav class="container flex md:justify-center sm:justify-end mx-auto bg-white">
@@ -21,11 +23,12 @@
       </li>     
       <li class="flex flex-row justify-between items-center">
         <div class="flex flex-row justify-center items-center">
-          <span class="pr-3"><i class="fa-regular fa-o text-blue-600 text-2xl"></i></span>
+          <span class="pr-3"><i class="fa-solid fa-list text-blue-600 text-2xl"></i></span>
           <span>All</span>
         </div>
         <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{}}</span>
+          <!-- <span>{{tasks.tasks.length}}</span> -->
+          <span>{{allTasks}}</span>
         </div>
       </li>
       <li class="flex flex-row justify-between items-center">
@@ -41,15 +44,6 @@
         <div class="flex flex-row justify-center items-center">
           <span class="pr-3"><i class="fa-regular fa-circle-check text-green-600 text-2xl"></i></span>
           <span>Complited</span>
-        </div>
-        <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{}}</span>
-        </div>
-      </li>
-      <li class="flex flex-row justify-between items-center">
-        <div class="flex flex-row justify-center items-center">
-          <span class="pr-3"><i class="fa-regular fa-circle-xmark text-red-600 text-2xl"></i></span>
-          <span>Canceled</span>
         </div>
         <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
           <span>{{}}</span>
@@ -75,16 +69,24 @@ export default {
       userName: "",
       email: '',
       showMenu: false,
+      allTasks: "",
     }
   },
   methods:{
-
+    getAllTasks(){
+      const allTasks = tasks.tasks.lenght
+      return allTasks;
+    },
+    getCompletedTasks(){
+      const completedTasks = allTasks.filter(task => task.is_complete === true)
+      console.log(completedTasks);
+    },
   },
   mounted() {
-    const session = JSON.parse(localStorage.getItem('supabase.auth.token'))
-    const email = session['currentSession'].user.email
-    this.userName = email.slice(0, email.indexOf('@'))
-    this.email = email
-  }
+    const session = JSON.parse(localStorage.getItem('supabase.auth.token'));
+    const email = session['currentSession'].user.email;
+    this.userName = email.slice(0, email.indexOf('@'));
+    this.email = email;
+  },
 }
 </script>

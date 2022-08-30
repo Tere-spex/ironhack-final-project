@@ -3,7 +3,6 @@
     <div class="flex justify-center items-center w-full">
        <button @click="changeTaskState(id)" class="text-2xl">
          <i :class="`text-${!is_complete ?'gray-400' : 'green-600'} fa-solid fa-circle-check`"></i>
-         <!-- <i v-else class="text-gray-600 hover:text-green-400 fa-solid fa-circle-check"></i> -->
         </button>
        <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{title}}</p>
        <input v-else class="mx-2 px-2 w-full" v-model="newTaskTitle" placeholder="Editar tarea" type="text">
@@ -49,7 +48,7 @@ export default {
             this.editable = true;
         }
     },
-    // Hacer el PUT (cambiar entre completada y pendiente) ❓❓❓ 
+    // Hacer el PUT (cambiar entre completada y pendiente)
     async changeTaskState(id){
       console.log(this.is_complete)
       console.log(id)
