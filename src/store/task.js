@@ -5,6 +5,8 @@ export const useTaskStore = defineStore("tasks", {
   state: () => ({
     tasks: null,
     completed: null,
+    completedLength: 0,
+    uncompletedLength: 0,
     uncompleted: null,
   }),
   actions: {
@@ -18,7 +20,9 @@ export const useTaskStore = defineStore("tasks", {
         this.tasks = tasks;
         //Para separar las tareas según su estado
         this.completed = tasks.filter(task => task.is_complete === true)
+        this.completedLength = this.completed.length;
         this.uncompleted = tasks.filter(task => task.is_complete === false)
+        this.uncompletedLength = this.uncompleted.length;
       
         if (error) {
         console.log('error', error);
