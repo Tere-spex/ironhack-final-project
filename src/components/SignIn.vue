@@ -8,12 +8,6 @@
         </div>
         <form @submit.prevent="signIn" class="flow-root">
             <ul role="list">
-                <!-- <li class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-4 border rounded-lg p-2">
-                        <i class="fa-solid fa-circle-user"></i>
-                        <input class="outline-none w-72" type="text" placeholder="Username">
-                    </div>
-                </li> -->
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2">
                         <i class="fa-solid fa-envelope"></i>

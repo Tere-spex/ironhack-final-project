@@ -3,7 +3,6 @@
     <form @submit.prevent="submitTask"  class="flex justify-left items-center w-full border-b-2 py-5 md:p-5 mx-2">
       <button class="text-blue-400"><i class="fa-solid fa-circle-plus text-2xl"></i></button>
       <input v-model="taskTitle" class="outline-none mx-2 px-2  w-full" type="text" placeholder="Add task">
-       <!-- <input v-else class="mx-2 px-2 w-45" v-model="newTaskTitle" placeholder="Editar tarea" type="text"></input> -->
     </form>
   </div>
 </template>

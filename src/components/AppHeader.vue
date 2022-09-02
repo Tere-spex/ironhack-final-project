@@ -24,7 +24,6 @@ export default {
   },
   data(){ 
     return {
-        // email: '',
         light: true,
     }
   },
@@ -37,10 +36,5 @@ export default {
       }
     },
   },
-  // mounted() {
-  //   const session = JSON.parse(localStorage.getItem('supabase.auth.token'))
-  //   const email = session['currentSession'].user.email
-  //   this.email = email.slice(0, email.indexOf('@'))
-  // }
 }
 </script>
