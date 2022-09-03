@@ -38,9 +38,8 @@ export default {
     },
     async checkAuthentication(){
       try {
-      await user.fetchUser(); // here we call fetch user
-      console.log('´HELLOOOO');
-      if (!user.value) {
+      await this.user.fetchUser(); // here we call fetch user
+      if (!this.user.user) {
       // redirect them to logout if the user is not there
       router.push({ path: "/auth/signin" });
       } else {

@@ -23,7 +23,7 @@ export const useUserStore = defineStore("user", {
       });
       if (error) throw error;
       if (user) this.user = user;
-      this.email = user.user.email
+      this.email = email
       console.log(error);
     },
     //Login

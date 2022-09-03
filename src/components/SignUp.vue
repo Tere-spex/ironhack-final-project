@@ -54,8 +54,8 @@
                 <!-- mostrar cuando salte un error o el registro sea correcto-->
                 <div class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4 text-center">
-                    <span v-if="errorSupabase" class="text-red-500">{{ errorSupabase }}</span>
-                    <span v-if="errorSupabase === 'Cannot read properties of undefined (reading \'email\')'">The account has been created successfully, check your email to confirm the email!</span>
+                    <span v-if="errorSupabase" :class="`text-${is_errorOk ?'green-600' : 'red-400'}`">{{ errorSupabase }}</span>
+                    <!-- <span v-if="errorSupabase === `Cannot read properties of undefined (reading \'email\')`">The account has been created successfully, check your email to confirm the email!</span> -->
                   </div>
                 </div>
                 <div class=" flex justify-center py-3 sm:py-4">
@@ -95,6 +95,7 @@ export default {
         repeatPassword: "",
         passwordVisibility: "password",
         confPasswordVisibility: "password",
+        is_errorOk: "",
     }
   },
   methods:{
@@ -102,10 +103,22 @@ export default {
         if(this.password === this.repeatPassword){
             try{
                 await this.user.signUp(this.email, this.password)
+                alert("todo ok");
                  this.$router.push("/auth/signin")
-            } catch(error){
-                this.errorSupabase = error.message + "!";
-                // console.log(error.message);
+                 console.log('´Deberiamos pasar por aqui');
+                //  this.errorSupabase = "todo ok"
+                } catch(error){
+                    console.log(`Error ${error.status}: ${error.message}`);
+                    switch(error.status) {
+                        case 500:
+                            this.errorSupabase = "Interval server error something went wrong!"
+                        break;
+                        case 422:
+                            this.errorSupabase = "Invalid password length try something large"
+                        break;
+                        default:
+                            this.errorSupabase = "Unkown error please try again"
+                    }
             }
             this.email = "";
             this.password = "";
