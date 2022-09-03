@@ -15,7 +15,7 @@
           <span class="font-bold text-xl" v-if="email">{{ userName }}</span>
           <br />
           <span v-if="email">{{ email }}</span>
-          <span v-else><RouterLink class="underline text-blue-700 font-normal" :to="`/auth/signup`">Create an acount!</RouterLink></span>
+          <span v-else><RouterLink class="underline text-blue-700 font-normal" :to="`/auth/signin`">Let´s get you logged in!</RouterLink></span>
         </div>
       </li>
       <li class="flex flex-row justify-between items-center">
@@ -24,7 +24,7 @@
           <span>All</span>
         </div>
         <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{ getNumberAllTasks() }}</span>
+          <span>{{ numberOfTasks }}</span>
         </div>
       </li>
       <li class="flex flex-row justify-between items-center">
@@ -72,23 +72,28 @@ export default {
       taskList: null, //Lo estoy utilizando en el mounted
     };
   },
-  methods:{
-    getNumberAllTasks(){
-      return this.numberOfTasks = this.tasks.completed.length + this.tasks.uncompleted.length;
-    },
-  },
+  // methods:{
+  //   getNumberAllTasks(){
+  //     return this.numberOfTasks = this.tasks.completed.length + this.tasks.uncompleted.length;
+  //   },
+  // },
   async mounted() {
     const session = JSON.parse(localStorage.getItem("supabase.auth.token"));
 
     const email = session["currentSession"].user.email;
     this.userName = email.slice(0, email.indexOf("@"));
     this.email = email;
-
-    await this.tasks.fetchTasks();
-    this.taskList = this.tasks.tasks;
-
+    
+    //Si existe la sesion me muestra las tareas
+    if (session) {
+      await this.tasks.fetchTasks();
+      this.taskList = this.tasks.tasks; 
+    }
+    
     this.completedTasks = this.tasks.completed.length;
     this.uncompletedTasks = this.tasks.uncompleted.length;
+    this.numberOfTasks = this.tasks.tasksLength;
+    // await this.getNumberAllTasks();
   },
 };
 </script>

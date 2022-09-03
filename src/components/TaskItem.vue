@@ -1,5 +1,4 @@
 <template>
-<!-- h-[calc(100vh-140px)] -->
   <div class="overflow-y-scroll px-5">
     <ul class="md:h-[calc(100vh-282px)]" v-if="tasks.tasks">
       <li v-for="task in tasks.uncompleted" :key="task.id" class="py-3 sm:py-4 border-b-2">
@@ -24,14 +23,16 @@ import { useTaskStore } from '../store/task'
 import Task from './Task.vue'
 export default {
     setup() {
-        const tasks = useTaskStore();
-        const completed = useTaskStore();
-        const uncompleted = useTaskStore();
-        return { tasks, completed, uncompleted };
+      const tasks = useTaskStore();
+      return { tasks };
     },
     //Solicito las tareas para que se rendericen al cargar la pagina del usuario
+    //Si existe la sesion me muestra las tareas
     async mounted() {
-        await this.tasks.fetchTasks();
+      const session = JSON.parse(localStorage.getItem("supabase.auth.token"));
+      if (session) {
+        await this.tasks.fetchTasks(); 
+      }
     },
     components: { Task }
 }

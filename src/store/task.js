@@ -7,6 +7,7 @@ export const useTaskStore = defineStore("tasks", {
     completed: null,
     completedLength: 0,
     uncompletedLength: 0,
+    tasksLength: 0,
     uncompleted: null,
   }),
   actions: {
@@ -23,6 +24,7 @@ export const useTaskStore = defineStore("tasks", {
         this.completedLength = this.completed.length;
         this.uncompleted = tasks.filter(task => task.is_complete === false)
         this.uncompletedLength = this.uncompleted.length;
+        this.tasksLength = tasks.length;
       
         if (error) {
         console.log('error', error);
@@ -60,7 +62,7 @@ export const useTaskStore = defineStore("tasks", {
       }
       this.fetchTasks();
     },
-    // Hacer el PUT (cambiar entre completada y pendiente) ❓❓❓
+    // Hacer el PUT (cambiar entre completada y pendiente)
     async changeTaskState( state, taskId){
       const { tasks, error } = await supabase
       .from("tasks")

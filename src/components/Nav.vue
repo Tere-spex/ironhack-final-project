@@ -1,12 +1,14 @@
 <template>
   <nav class="flex gap-2 justify-end uppercase font-bold text-gray-500 pt-8 md:pt-16">
     <RouterLink :to="`/auth/signin`">login</RouterLink> |
-    <button @click="logOut">LOGOUT</button>
+    <button class="bg-orange-400" @click="logOut">LOGOUT</button>
   </nav>
 </template>
 
 <script>
 import { useUserStore } from '../store/user'
+import router from '../router/index'
+
 export default {
   setup() {
     const user = useUserStore();
@@ -16,8 +18,7 @@ export default {
     async logOut(){
       try{
         await this.user.logOut(this.email, this.password)
-          //Si se ha hecho el registro bien, que me lleve al componente login
-          router.push("/auth/signup")
+          router.push("/auth/signin")
         }catch(error){
           console.log(error.message);
       }

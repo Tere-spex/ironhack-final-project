@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center h-[calc(100vh-168px)]">
+  <div class="flex flex-col justify-center items-center min-h-[calc(100vh-168px)]">
     <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
         <div class="flex flex-col justify-between items-center">
             <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
@@ -52,10 +52,10 @@
                   </div>
                 </div>
                 <!-- mostrar cuando salte un error o el registro sea correcto-->
-                <div class="hidden py-3 sm:py-4">
+                <div class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
-                    <span class="text-green-500">The account has been created successfully, check your email to confirm the email!</span>
-                    <span>{{error}}</span>
+                    <span v-if="!error" class="text-red-500">{{errorSupabase}}</span>
+                    <span v-else>The account has been created successfully, check your email to confirm the email!</span>
                   </div>
                 </div>
                 <div class=" flex justify-center py-3 sm:py-4">
@@ -91,6 +91,7 @@ export default {
     return{
         email: "",
         password: "",
+        errorSupabase: "",
         repeatPassword: "",
         passwordVisibility: "password",
         confPasswordVisibility: "password",
@@ -101,11 +102,14 @@ export default {
         if(this.password === this.repeatPassword){
             try{
                 await this.user.signUp(this.email, this.password)
-                //Si se ha hecho el registro bien, que me lleve al componente login
                  this.$router.push("/auth/signin")
             } catch(error){
-                console.log(error.message);
+                this.errorSupabase = error.message;
+                console.log("el error", error.message);
             }
+            this.email = "";
+            this.password = "";
+            this.repeatPassword = "";
         }
     },
     showPassword(){

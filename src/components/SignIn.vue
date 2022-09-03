@@ -1,6 +1,6 @@
 <template>
  <!-- h-[calc(100vh-200px)]  -->
- <div class="flex flex-col justify-center items-center h-[calc(100vh-168px)]">
+ <div class="flex flex-col justify-center items-center min-h-[calc(100vh-168px)]">
     <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
         <div class="flex flex-col justify-between items-center">
             <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
@@ -82,6 +82,8 @@ export default {
         if (res.status === 200) {
             router.push("/")
         }
+        this.email = "";
+        this.password = "";
     },
     showPassword(){
         this.visibility = 'text';
