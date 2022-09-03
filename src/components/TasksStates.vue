@@ -24,13 +24,13 @@
           <span>All</span>
         </div>
         <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{ numberOfTasks }}</span>
+          <span v-if="tasks.tasks">{{ tasks.tasks.length }}</span>
         </div>
       </li>
       <li class="flex flex-row justify-between items-center">
         <div class="flex flex-row justify-center items-center">
           <span class="pr-3"><i class="fa-regular fa-circle-check text-green-600 text-2xl"></i></span>
-          <span>Complited</span>
+          <span>Completed</span>
         </div>
         <div
           class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
@@ -65,23 +65,16 @@ export default {
       newTask: "",
       userName: "",
       email: "",
-      numberOfTasks: 0,
       completedTasks: 0,
       uncompletedTasks: 0,
       showMenu: false,
       taskList: null, //Lo estoy utilizando en el mounted
     };
   },
-  // methods:{
-  //   getNumberAllTasks(){
-  //     return this.numberOfTasks = this.tasks.completed.length + this.tasks.uncompleted.length;
-  //   },
-  // },
   async mounted() {
     const session = JSON.parse(localStorage.getItem("supabase.auth.token"));
-
     const email = session["currentSession"].user.email;
-    this.userName = email.slice(0, email.indexOf("@"));
+    this.userName = email.slice(0, email.indexOf("@")).toUpperCase();
     this.email = email;
     
     //Si existe la sesion me muestra las tareas
@@ -89,11 +82,8 @@ export default {
       await this.tasks.fetchTasks();
       this.taskList = this.tasks.tasks; 
     }
-    
     this.completedTasks = this.tasks.completed.length;
     this.uncompletedTasks = this.tasks.uncompleted.length;
-    this.numberOfTasks = this.tasks.tasksLength;
-    // await this.getNumberAllTasks();
   },
 };
 </script>

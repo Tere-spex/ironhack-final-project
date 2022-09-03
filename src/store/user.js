@@ -40,7 +40,7 @@ export const useUserStore = defineStore("user", {
           message: 'Welcome'
         }
       } catch(error){
-        console.log("el error", error)
+        console.log(error)
         return error
       }
     },

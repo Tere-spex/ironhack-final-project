@@ -39,6 +39,11 @@
                         <span><RouterLink class="text-blue-300 font-normal" :to="`/`">Forgot password?</RouterLink></span>
                     </div>
                 </div>
+                <div class="py-3 sm:py-4">
+                  <div class="flex items-center space-x-4 text-center">
+                    <span class="text-red-500">{{ error }}</span>
+                  </div>
+                </div>
                 <div class=" flex justify-center py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
                         <div class="text-white w-full">
@@ -74,17 +79,21 @@ export default {
         email: "",
         password: "",
         visibility: "password",
+        // errorSupa: "",
     }
   },
   methods:{
     async signIn(){
+        
         const res = await this.user.signIn(this.email, this.password);
         if (res.status === 200) {
             router.push("/")
         }
+        
         this.email = "";
         this.password = "";
     },
+    
     showPassword(){
         this.visibility = 'text';
     },

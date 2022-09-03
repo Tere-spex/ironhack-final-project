@@ -53,9 +53,9 @@
                 </div>
                 <!-- mostrar cuando salte un error o el registro sea correcto-->
                 <div class="py-3 sm:py-4">
-                  <div class="flex items-center space-x-4">
-                    <span v-if="!error" class="text-red-500">{{errorSupabase}}</span>
-                    <span v-else>The account has been created successfully, check your email to confirm the email!</span>
+                  <div class="flex items-center space-x-4 text-center">
+                    <span v-if="errorSupabase" class="text-red-500">{{ errorSupabase }}</span>
+                    <span v-if="errorSupabase === 'Cannot read properties of undefined (reading \'email\')'">The account has been created successfully, check your email to confirm the email!</span>
                   </div>
                 </div>
                 <div class=" flex justify-center py-3 sm:py-4">
@@ -104,8 +104,8 @@ export default {
                 await this.user.signUp(this.email, this.password)
                  this.$router.push("/auth/signin")
             } catch(error){
-                this.errorSupabase = error.message;
-                console.log("el error", error.message);
+                this.errorSupabase = error.message + "!";
+                // console.log(error.message);
             }
             this.email = "";
             this.password = "";

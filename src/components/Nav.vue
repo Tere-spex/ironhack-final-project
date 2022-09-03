@@ -1,7 +1,7 @@
 <template>
   <nav class="flex gap-2 justify-end uppercase font-bold text-gray-500 pt-8 md:pt-16">
     <RouterLink :to="`/auth/signin`">login</RouterLink> |
-    <button class="bg-orange-400" @click="logOut">LOGOUT</button>
+    <button @click="logOut">LOGOUT</button>
   </nav>
 </template>
 
