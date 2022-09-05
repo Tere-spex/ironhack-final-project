@@ -103,8 +103,8 @@ export default {
         if(this.password === this.repeatPassword){
             try{
                 await this.user.signUp(this.email, this.password)
-                alert("todo ok");
-                 this.$router.push("/auth/signin")
+                // alert("todo ok");
+                 this.$router.push("/auth/signupverification")
                  console.log('´Deberiamos pasar por aqui');
                 //  this.errorSupabase = "todo ok"
                 } catch(error){
