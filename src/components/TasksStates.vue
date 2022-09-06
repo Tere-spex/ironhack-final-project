@@ -74,7 +74,7 @@ export default {
   async mounted() {
     const session = JSON.parse(localStorage.getItem("supabase.auth.token"));
     const email = session["currentSession"].user.email;
-    this.userName = email.slice(0, email.indexOf("@")).toUpperCase();
+    this.userName = email.slice(0, email.indexOf("@"));
     this.email = email;
     
     //Si existe la sesion me muestra las tareas

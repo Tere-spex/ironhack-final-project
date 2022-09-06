@@ -53,9 +53,9 @@
                 </div>
                 <!-- mostrar cuando salte un error o el registro sea correcto-->
                 <div class="py-3 sm:py-4">
-                  <div class="flex items-center space-x-4 text-center">
+                  <div class="flex flex-col items-center space-x-4 text-center">
                     <span v-if="errorSupabase" :class="`text-${is_errorOk ?'green-600' : 'red-400'}`">{{ errorSupabase }}</span>
-                    <!-- <span v-if="errorSupabase === `Cannot read properties of undefined (reading \'email\')`">The account has been created successfully, check your email to confirm the email!</span> -->
+                    <span v-if="errorPasswordConfirm" :class="`text-${is_errorOk ?'green-600' : 'red-400'}`">{{ errorPasswordConfirm }}</span>
                   </div>
                 </div>
                 <div class=" flex justify-center py-3 sm:py-4">
@@ -91,6 +91,7 @@ export default {
     return{
         email: "",
         password: "",
+        errorPasswordConfirm: "",
         errorSupabase: "",
         repeatPassword: "",
         passwordVisibility: "password",
@@ -103,10 +104,8 @@ export default {
         if(this.password === this.repeatPassword){
             try{
                 await this.user.signUp(this.email, this.password)
-                // alert("todo ok");
                  this.$router.push("/auth/signupverification")
                  console.log('´Deberiamos pasar por aqui');
-                //  this.errorSupabase = "todo ok"
                 } catch(error){
                     console.log(`Error ${error.status}: ${error.message}`);
                     switch(error.status) {
@@ -114,7 +113,7 @@ export default {
                             this.errorSupabase = "Interval server error something went wrong!"
                         break;
                         case 422:
-                            this.errorSupabase = "Invalid password length try something large"
+                            this.errorSupabase = "All fields are required"
                         break;
                         default:
                             this.errorSupabase = "Unkown error please try again"
@@ -123,7 +122,10 @@ export default {
             this.email = "";
             this.password = "";
             this.repeatPassword = "";
+        }else{
+            this.errorPasswordConfirm = "Passwords didn't match"
         }
+
     },
     showPassword(){
         this.passwordVisibility = 'text';

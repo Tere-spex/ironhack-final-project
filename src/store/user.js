@@ -28,7 +28,7 @@ export const useUserStore = defineStore("user", {
     },
     //Login
     async signIn(email, password){
-      try {
+      // try {
         const { user, session, error } = await supabase.auth.signIn({
           email: email,
           password: password,
@@ -39,10 +39,10 @@ export const useUserStore = defineStore("user", {
           status: 200,
           message: 'Welcome'
         }
-      } catch(error){
-        console.log(error)
-        return error
-      }
+      // } catch(error){
+      //   console.log(error)
+      //   return error
+      // }
     },
     //Logout
     async logOut(){

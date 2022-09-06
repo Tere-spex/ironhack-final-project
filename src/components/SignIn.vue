@@ -39,6 +39,12 @@
                         <span><RouterLink class="text-blue-300 font-normal" :to="`/`">Forgot password?</RouterLink></span>
                     </div>
                 </div>
+                 <!-- mostrar cuando salte un error o el registro sea correcto-->
+                 <div class="py-3 sm:py-4">
+                  <div class="flex flex-col items-center space-x-4 text-center">
+                    <span v-if="errorSupabase" :class="`text-${is_errorOk ?'green-600' : 'red-400'}`">{{ errorSupabase }}!</span>
+                  </div>
+                </div>
                 <div class=" flex justify-center py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
                         <div class="text-white w-full">
@@ -74,17 +80,31 @@ export default {
         email: "",
         password: "",
         visibility: "password",
+        errorSupabase: "",
     }
   },
   methods:{
     async signIn(){
-        const res = await this.user.signIn(this.email, this.password);
-        if (res.status === 200) {
-            router.push("/")
+        try{
+            const res = await this.user.signIn(this.email, this.password);
+            if( this.email.length !== 0 & this.password.length !== 0){
+                if (res.status === 200) {
+                    console.log(res.status);
+                    router.push("/")
+                }
+            }
+        }catch(error){
+            console.log(`${error.message}`);
+            this.errorSupabase = `${error.message}`
         }
         this.email = "";
         this.password = "";
     },
+
+
+        
+
+
     showPassword(){
         this.visibility = 'text';
     },
