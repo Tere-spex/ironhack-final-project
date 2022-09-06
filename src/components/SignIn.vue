@@ -10,21 +10,15 @@
                 <li class="py-3 sm:py-4 text-gray-500 ">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <i class="fa-solid fa-envelope"></i>
-                        <input class="outline-none w-72" type="email" v-model="email" placeholder="E-mail">
+                        <input class="outline-none w-full" type="email" v-model="email" placeholder="E-mail">
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
-                         <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
-                        <div class="space-x-4">
-                            <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-64 md:w-72" :type="visibility" v-model="password" min="6" placeholder="Password">
-                        </div>
-                        <div @click="showPassword" v-if="visibility === 'password'">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <div @click="hidePassword" v-if="visibility === 'text'">
-                            <i class="fa-solid fa-eye-slash"></i>
-                        </div>
+                    <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
+                        <i class="fa-solid fa-unlock"></i>
+                        <input class="outline-none w-full" :type="visibility" v-model="password" min="6" placeholder="Password">
+                        <button @click="showPassword" v-if="visibility === 'password'"><i class="fa-solid fa-eye"></i></button>
+                        <button @click="hidePassword" v-if="visibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
                 </li>
             </ul>

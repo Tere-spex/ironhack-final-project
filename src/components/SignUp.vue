@@ -10,35 +10,23 @@
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <i class="fa-solid fa-envelope"></i>
-                        <input class="outline-none w-[250px] md:w-72" type="email" v-model="email" placeholder="E-mail">
+                        <input class="outline-none w-full" type="email" v-model="email" placeholder="E-mail">
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
-                        <div class="space-x-4">
-                            <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-[250px] md:w-72" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
-                        </div>
-                        <div @click="showPassword" v-if="passwordVisibility === 'password'">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <div @click="hidePassword" v-if="passwordVisibility === 'text'">
-                            <i class="fa-solid fa-eye-slash"></i>
-                        </div>
+                        <i class="fa-solid fa-unlock"></i>
+                        <input class="outline-none w-full" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
+                        <button @click="showPassword" v-if="passwordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
+                        <button @click="hidePassword" v-if="passwordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
-                        <div class="space-x-4">
-                            <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-64 md:w-72" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
-                        </div>
-                        <div @click="showConfPassword" v-if="confPasswordVisibility === 'password'">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <div @click="hideConfPassword" v-if="confPasswordVisibility === 'text'">
-                            <i class="fa-solid fa-eye-slash"></i>
-                        </div>
+                        <i class="fa-solid fa-unlock"></i>
+                        <input class="outline-none w-full" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
+                        <button @click="showPassword" v-if="passwordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
+                        <button @click="hidePassword" v-if="passwordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
                 </li>
             </ul>
