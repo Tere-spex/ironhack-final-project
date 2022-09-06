@@ -3,18 +3,18 @@
     <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
         <div class="flex flex-col justify-between items-center">
             <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
-            <span class="p-2">CREATE YOUR ACCOUNT</span>
+            <span class="p-2 dark:text-gray-300">CREATE YOUR ACCOUNT</span>
         </div>
         <form @submit.prevent="signUp" class="flow-root">
             <ul role="list">
                 <li class="py-3 sm:py-4 text-gray-500">
-                    <div class="flex items-center space-x-4 border rounded-lg p-2">
+                    <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <i class="fa-solid fa-envelope"></i>
                         <input class="outline-none w-72" type="email" v-model="email" placeholder="E-mail">
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
-                    <div class="flex items-center space-x-4 border rounded-lg p-2">
+                    <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <div class="space-x-4">
                             <i class="fa-solid fa-unlock"></i>
                             <input class="outline-none w-64 md:w-72" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
@@ -28,7 +28,7 @@
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
-                    <div class="flex items-center space-x-4 border rounded-lg p-2">
+                    <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <div class="space-x-4">
                             <i class="fa-solid fa-unlock"></i>
                             <input class="outline-none w-64 md:w-72" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
@@ -47,7 +47,7 @@
                   <div class="flex items-center space-x-16">
                     <div class="flex items-center space-x-2">
                       <input type="checkbox" required>
-                      <span>I Read and Agree to Terms & Conditions</span>
+                      <span class="dark:text-gray-300">I Read and Agree to Terms & Conditions</span>
                     </div>
                   </div>
                 </div>
@@ -68,7 +68,7 @@
                 <div class=" flex justify-center py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
                         <div>
-                            <span>Already have an account? <RouterLink class="text-blue-300 font-normal" :to="`/auth/signin`">Sing in!</RouterLink></span>
+                            <span class="dark:text-gray-300">Already have an account? <RouterLink class="text-blue-400 font-normal" :to="`/auth/signin`">Sign in!</RouterLink></span>
                         </div>
                     </div>
                 </div>

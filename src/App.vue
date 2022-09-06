@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="dark:bg-gray-800">
     <Header />
     <RouterView />
   </section>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center p-2 hover:bg-gray-200">
+  <div class="flex justify-between items-center p-2 hover:bg-gray-200 dark:hover:bg-transparent dark:hover:text-blue-400 dark:text-gray-100">
     <div class="flex justify-center items-center w-full">
        <button @click="changeTaskState(id)" class="text-2xl">
          <i :class="`text-${!is_complete ?'gray-400' : 'green-600'} fa-solid fa-circle-check`"></i>
