@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center min-h-[calc(100vh-168px)]">
+  <div class="flex flex-col justify-center items-center h-[calc(100vh-136px)] md:h-[calc(100vh-168px)]">
     <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
         <div class="flex flex-col justify-between items-center">
             <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
@@ -10,14 +10,14 @@
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <i class="fa-solid fa-envelope"></i>
-                        <input class="outline-none w-72" type="email" v-model="email" placeholder="E-mail">
+                        <input class="outline-none w-[250px] md:w-72" type="email" v-model="email" placeholder="E-mail">
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <div class="space-x-4">
                             <i class="fa-solid fa-unlock"></i>
-                            <input class="outline-none w-64 md:w-72" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
+                            <input class="outline-none w-[250px] md:w-72" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
                         </div>
                         <div @click="showPassword" v-if="passwordVisibility === 'password'">
                             <i class="fa-solid fa-eye"></i>

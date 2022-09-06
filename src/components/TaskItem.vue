@@ -1,6 +1,7 @@
 <template>
   <div class="overflow-y-scroll px-5">
-    <ul class="md:h-[calc(100vh-282px)]" v-if="tasks.tasks">
+    <ul class="md:h-[calc(100vh-230px)]" v-if="tasks.tasks">
+      <NewTask />
       <li v-for="task in tasks.uncompleted" :key="task.id" class="py-3 sm:py-4 border-b-2">
         <Task :id="task.id" 
         :title="task.title"
@@ -21,6 +22,8 @@
 //datos obtenidos desde pinia store
 import { useTaskStore } from '../store/task'
 import Task from './Task.vue'
+import NewTaskVue from './NewTask.vue';
+import NewTask from './NewTask.vue';
 export default {
     setup() {
       const tasks = useTaskStore();
@@ -34,6 +37,6 @@ export default {
         await this.tasks.fetchTasks(); 
       }
     },
-    components: { Task }
+    components: { Task, NewTask }
 }
 </script>
