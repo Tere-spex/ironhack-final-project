@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-y-scroll px-5">
+  <div class="overflow-y-scroll px-5 h-screen md:h-[calc(100vh-168px)]  dark:bg-gray-800">
     <ul class="md:h-[calc(100vh-230px)]" v-if="tasks.tasks">
       <NewTask />
       <li v-for="task in tasks.uncompleted" :key="task.id" class="py-3 sm:py-4 border-b-2">

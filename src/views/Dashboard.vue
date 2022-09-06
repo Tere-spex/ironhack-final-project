@@ -1,7 +1,7 @@
 <template>
-    <div class="dark:bg-gray-800 h-[calc(100vh-136px)] md:h-[calc(100vh-168px)] md:grid md:grid-cols-3 bg-white text-gray-500 font-semibold md:text-lg">
+    <div class="dark:bg-gray-800 md:grid md:grid-cols-3 bg-white text-gray-500 font-semibold md:text-lg">
     <tasks-states />
-    <div class="col-span-2">
+    <div class="col-span-2 dark:bg-gray-800">
       <!-- <new-task /> -->
       <TaskItem />
     </div>

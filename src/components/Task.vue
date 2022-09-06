@@ -1,13 +1,13 @@
 <template>
-  <div class="flex justify-between items-center p-2 hover:text-blue-400 dark:hover:text-blue-400 dark:text-gray-100">
+  <div class="flex justify-between items-center hover:text-blue-400 dark:hover:text-blue-400 dark:text-gray-100">
     <div class="flex justify-center items-center w-full">
-       <button @click="changeTaskState(id)" class="text-2xl">
+       <button @click="changeTaskState(id)" class=" text-xl md:text-2xl">
          <i :class="`text-${!is_complete ?'gray-400' : 'green-600'} fa-solid fa-circle-check`"></i>
         </button>
-       <p v-if="!editable" class="font-medium px-2 mx-5 w-full">{{title}}</p>
+       <p v-if="!editable" class="mx-2 px-2 w-full">{{title}}</p>
        <input v-else class="mx-2 px-2 w-full" v-model="newTaskTitle" placeholder="Editar tarea" type="text">
     </div>
-    <div class="flex gap-5 text-xl mx-2">
+    <div class="flex gap-2 md:gap-5 md:text-xl md:mx-2">
        <button @click="updateTask(id)" class="hover:text-green-400"><i class="fa-solid fa-pen-to-square"></i></button>
        <button @click="deleteTask(id)" class="hover:text-red-500"><i class="fa-solid fa-trash"></i></button>
     </div>
