@@ -1,6 +1,6 @@
 <template>
   <div class="overflow-y-scroll px-5 h-screen md:h-[calc(100vh-168px)]  dark:bg-gray-800">
-    <h1 class="py-5 text-4xl font-extrabold">Getting started</h1>
+    <!-- <h1 class="py-5 text-4xl font-extrabold">Getting started</h1> -->
     <ul class="md:h-[calc(100vh-230px)]" v-if="tasks.tasks">
       <NewTask />
       <li v-for="task in tasks.uncompleted" :key="task.id" class="py-3 sm:py-4 border-b-2">
@@ -9,6 +9,9 @@
         :is_complete="task.is_complete"
         />
       </li>
+      <div class="pt-2 text-gray-400" v-if="tasks.completed.length > 0">
+        <span>Completed</span>
+      </div>
       <li v-for="task in tasks.completed" :key="task.id" class="py-3 sm:py-4 border-b-2">
         <Task :id="task.id" 
         :title="task.title"

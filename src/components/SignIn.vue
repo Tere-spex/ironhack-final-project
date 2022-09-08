@@ -87,7 +87,7 @@ export default {
                 }
             }
         }catch(error){
-            console.log(`${error.message}`);
+            console.log(`${error.message} error n: ${error.status}`);
             this.errorSupabase = `${error.message}`
         }
         this.email = "";
