@@ -10,7 +10,6 @@
 
 <script>
 //componentes
-// import NewTask from '../components/NewTask.vue'
 import TaskItem from '../components/TaskItem.vue';
 import TasksStates from '../components/TasksStates.vue';
 //pinia
@@ -19,7 +18,7 @@ export default {
     components: {
     // NewTask,
     TaskItem,
-    TasksStates
+    TasksStates,
 },
 setup(){
     const task = useTaskStore();

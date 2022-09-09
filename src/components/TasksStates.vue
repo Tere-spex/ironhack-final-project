@@ -1,57 +1,62 @@
 <template>
-  <div class="dark:bg-gray-800 flex lg:hidden bg-gray-100">
-    <button
-      @click="showMenu = !showMenu" class="space-y-2 px-5 py-3 bg-gray-300 rounded-full ml-5 my-2">
-      <i v-if="!showMenu" class="fa-solid fa-arrow-down"></i>
-      <i v-else class="fa-solid fa-arrow-up"></i>
-    </button>
+  <div class="md:border-r-2">
+    <div class="flex flex-row items-center bg-gray-200  dark:bg-gray-800">
+      <div class="bg-green-300 rounded-full w-20 h-20 m-2 md:m-3"><RouterLink class="underline text-blue-700 font-normal" :to="`/settings`"></RouterLink></div>
+      <div>
+        <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
+        <br />
+        <span class="dark:text-gray-300" v-if="email">{{ email }}</span>
+      </div>
+    </div>
+    <section>
+      <div class="dark:bg-gray-800 flex lg:hidden">
+        <button
+          @click="showMenu = !showMenu" class="space-y-2 px-5 py-3 ml-3 bg-gray-300 rounded-full my-2">
+          <i v-if="!showMenu" class="fa-solid fa-arrow-down"></i>
+          <i v-else class="fa-solid fa-arrow-up"></i>
+        </button>
+      </div>
+      <nav class="dark:bg-gray-800 container flex md:justify-center sm:justify-end">
+        <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="absolute top-38 left-0 flex-col p-5 gap-5 border-r-2 w-56 h-full md:flex bg-white"> -->
+        <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col fixed top-30 left-0 transition-all z-50 w-full p-5 gap-5 bg-white"> -->
+        <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col p-5 gap-5 w-full md:flex font-normal">
+          <li class="flex flex-row justify-between items-center">
+            <div class="flex flex-row justify-center items-center">
+              <span class="pr-3"><i class="fa-solid fa-list text-blue-600 text-2xl"></i></span>
+              <span class="dark:text-gray-300" >All</span>
+            </div>
+            <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
+              <span v-if="tasks.tasks">{{ tasks.tasks.length }}</span>
+            </div>
+          </li>
+          <li class="flex flex-row justify-between items-center">
+            <div class="flex flex-row justify-center items-center">
+              <span class="pr-3"><i class="fa-regular fa-circle-check text-green-600 text-2xl"></i></span>
+              <span class="dark:text-gray-300" >Completed</span>
+            </div>
+            <div
+              class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
+              <span>{{ tasks.completedLength }}</span>
+            </div>
+          </li>
+          <li class="flex flex-row justify-between items-center">
+            <div class="flex flex-row justify-center items-center">
+              <span class="pr-3"><i class="fa-regular fa-circle-xmark text-red-400 text-2xl"></i></span>
+              <span class="dark:text-gray-300" >Uncompleted</span>
+            </div>
+            <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
+              <span>{{ tasks.uncompletedLength }}</span>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </section>
   </div>
-  <nav class="dark:bg-gray-800 container flex md:justify-center sm:justify-endn px-2 bg-white">
-    <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="absolute top-38 left-0 flex-col p-5 gap-5 border-r-2 w-56 h-full md:flex bg-white"> -->
-    <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col fixed top-30 left-0 transition-all z-50 w-full p-5 gap-5 bg-white"> -->
-    <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col p-5 gap-5 md:border-r-2 w-full md:flex font-normal">
-      <li class="flex gap-5">
-        <div>
-          <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
-          <br />
-          <span class="dark:text-gray-300" v-if="email">{{ email }}</span>
-          <span v-else><RouterLink class="underline text-blue-700 font-normal" :to="`/auth/signin`">Let´s get you logged in!</RouterLink></span>
-        </div>
-      </li>
-      <li class="flex flex-row justify-between items-center">
-        <div class="flex flex-row justify-center items-center">
-          <span class="pr-3"><i class="fa-solid fa-list text-blue-600 text-2xl"></i></span>
-          <span class="dark:text-gray-300" >All</span>
-        </div>
-        <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span v-if="tasks.tasks">{{ tasks.tasks.length }}</span>
-        </div>
-      </li>
-      <li class="flex flex-row justify-between items-center">
-        <div class="flex flex-row justify-center items-center">
-          <span class="pr-3"><i class="fa-regular fa-circle-check text-green-600 text-2xl"></i></span>
-          <span class="dark:text-gray-300" >Completed</span>
-        </div>
-        <div
-          class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{ tasks.completedLength }}</span>
-        </div>
-      </li>
-      <li class="flex flex-row justify-between items-center">
-        <div class="flex flex-row justify-center items-center">
-          <span class="pr-3"><i class="fa-regular fa-circle-xmark text-red-400 text-2xl"></i></span>
-          <span class="dark:text-gray-300" >Uncompleted</span>
-        </div>
-        <div class="flex flex-row justify-center items-center bg-gray-100 rounded-full w-10 h-10">
-          <span>{{ tasks.uncompletedLength }}</span>
-        </div>
-      </li>
-    </ul>
-  </nav>
 </template>
 
 <script>
 //datos obtenidos desde pinia store
+import router from '../router';
 import { useUserStore } from "../store/user";
 import { useTaskStore } from "../store/task";
 export default {
