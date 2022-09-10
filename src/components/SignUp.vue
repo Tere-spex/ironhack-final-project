@@ -113,7 +113,6 @@ export default {
         }else{
             this.errorPasswordConfirm = "Passwords didn't match"
         }
-
     },
     showPassword(){
         this.passwordVisibility = 'text';
