@@ -57,7 +57,6 @@
         </form>
     </div>
  </div>
-    
 </template>
 
 <script>
@@ -94,11 +93,6 @@ export default {
         this.email = "";
         this.password = "";
     },
-
-
-        
-
-
     showPassword(){
         this.visibility = 'text';
     },

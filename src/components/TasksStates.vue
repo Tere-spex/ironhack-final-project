@@ -1,7 +1,8 @@
 <template>
   <div class="md:border-r-2">
     <div class="flex flex-row items-center bg-gray-200  dark:bg-gray-800">
-      <div class="bg-green-300 rounded-full w-20 h-20 m-2 md:m-3"><RouterLink class="underline text-blue-700 font-normal" :to="`/settings`"></RouterLink></div>
+      <img class="rounded-full w-20 h-20 m-2" src="https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/male-profile.jpg" alt="">
+      <!-- <RouterLink class="underline text-blue-700 font-normal" :to="`/settings`"></RouterLink> -->
       <div>
         <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
         <br />
