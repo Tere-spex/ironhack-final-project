@@ -30,7 +30,7 @@
                             <input type="checkbox">
                             <span class="dark:text-gray-300">Remember me</span>
                         </div>
-                        <span><RouterLink class="text-blue-400 font-normal" :to="`/`">Forgot password?</RouterLink></span>
+                        <span></span>
                     </div>
                 </div>
                  <!-- mostrar cuando salte un error o el registro sea correcto-->

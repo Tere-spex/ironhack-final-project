@@ -12,18 +12,14 @@
         <span class="dark:text-gray-300" v-if="email">{{ email }}</span>
       </div>
       <!-- esconder mostrar estado tareas -->
-      <div class="dark:bg-gray-800 lg:hidden w-fit">
-        <button
-          @click="showMenu = !showMenu" class="px-5 py-3 bg-gray-300 rounded-full">
-          <i v-if="!showMenu" class="fa-solid fa-arrow-down"></i>
-          <i v-else class="fa-solid fa-arrow-up"></i>
-        </button>
-      </div>
+      <button
+        @click="showMenu = !showMenu" class="px-5 py-3 bg-gray-300 rounded-full lg:hidden w-fit">
+        <i v-if="!showMenu" class="fa-solid fa-arrow-down"></i>
+        <i v-else class="fa-solid fa-arrow-up"></i>
+      </button>
     </div>
     <section>
       <nav class="dark:bg-gray-800 container flex md:justify-center sm:justify-end">
-        <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="absolute top-38 left-0 flex-col p-5 gap-5 border-r-2 w-56 h-full md:flex bg-white"> -->
-        <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col fixed top-30 left-0 transition-all z-50 w-full p-5 gap-5 bg-white"> -->
         <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col p-5 gap-5 w-full md:flex font-normal">
           <li class="flex flex-row justify-between items-center">
             <div class="flex flex-row justify-center items-center">
