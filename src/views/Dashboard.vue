@@ -2,7 +2,6 @@
     <div class="dark:bg-gray-800 md:grid md:grid-cols-3 bg-white text-gray-500 font-semibold md:text-lg">
     <tasks-states />
     <div class="col-span-2 dark:bg-gray-800">
-      <!-- <new-task /> -->
       <TaskItem />
     </div>
   </div>

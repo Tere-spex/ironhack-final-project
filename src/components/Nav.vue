@@ -3,7 +3,6 @@
     <RouterLink :to="`/auth/signin`">login</RouterLink> |
     <button @click="logOut">LOGOUT</button>
   </nav>
-  <RouterLink :to="`/settings`"><i class="fa-solid fa-gear text-3xl dark:text-gray-800"></i></RouterLink>
 </template>
 
 <script>

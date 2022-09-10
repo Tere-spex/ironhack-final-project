@@ -1,22 +1,26 @@
 <template>
   <div class="md:border-r-2">
-    <div class="flex flex-row items-center bg-gray-200  dark:bg-gray-800">
-      <img class="rounded-full w-20 h-20 m-2" src="https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/male-profile.jpg" alt="">
-      <!-- <RouterLink class="underline text-blue-700 font-normal" :to="`/settings`"></RouterLink> -->
+    <div class="flex justify-between md:justify-start md:gap-5 items-center bg-gray-100 dark:bg-gray-700 p-5">
+      <div class="">
+        <RouterLink :to="`/settings`">
+          <img class="rounded-full w-16 h-16 md:w-20 md:h-20" src="https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/male-profile.jpg" alt="avatar">
+        </RouterLink>
+      </div>
       <div>
         <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
         <br />
         <span class="dark:text-gray-300" v-if="email">{{ email }}</span>
       </div>
-    </div>
-    <section>
-      <div class="dark:bg-gray-800 flex lg:hidden">
+      <!-- esconder mostrar estado tareas -->
+      <div class="dark:bg-gray-800 lg:hidden w-fit">
         <button
-          @click="showMenu = !showMenu" class="space-y-2 px-5 py-3 ml-3 bg-gray-300 rounded-full my-2">
+          @click="showMenu = !showMenu" class="px-5 py-3 bg-gray-300 rounded-full">
           <i v-if="!showMenu" class="fa-solid fa-arrow-down"></i>
           <i v-else class="fa-solid fa-arrow-up"></i>
         </button>
       </div>
+    </div>
+    <section>
       <nav class="dark:bg-gray-800 container flex md:justify-center sm:justify-end">
         <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="absolute top-38 left-0 flex-col p-5 gap-5 border-r-2 w-56 h-full md:flex bg-white"> -->
         <!-- <ul :class="showMenu ? 'flex' : 'hidden'" class="flex-col fixed top-30 left-0 transition-all z-50 w-full p-5 gap-5 bg-white"> -->
@@ -57,39 +61,41 @@
 
 <script>
 //datos obtenidos desde pinia store
-import router from '../router';
 import { useUserStore } from "../store/user";
 import { useTaskStore } from "../store/task";
+import Settings from './Settings.vue';
+import router from '../router/index';
+
 export default {
-  setup() {
-    const tasks = useTaskStore();
-    const user = useUserStore();
-    return { user, tasks };
-  },
-  data() {
-    return {
-      newTask: "",
-      userName: "",
-      email: "",
-      completedTasks: 0,
-      uncompletedTasks: 0,
-      showMenu: false,
-      taskList: null, //Lo estoy utilizando en el mounted
-    };
-  },
-  async mounted() {
-    const session = JSON.parse(localStorage.getItem("supabase.auth.token"));
-    const email = session["currentSession"].user.email;
-    this.userName = email.slice(0, email.indexOf("@"));
-    this.email = email;
-    
-    //Si existe la sesion me muestra las tareas
-    if (session) {
-      await this.tasks.fetchTasks();
-      this.taskList = this.tasks.tasks; 
-    }
-    this.completedTasks = this.tasks.completed.length;
-    this.uncompletedTasks = this.tasks.uncompleted.length;
-  },
+    setup() {
+        const tasks = useTaskStore();
+        const user = useUserStore();
+        return { user, tasks };
+    },
+    data() {
+        return {
+            newTask: "",
+            userName: "",
+            email: "",
+            completedTasks: 0,
+            uncompletedTasks: 0,
+            showMenu: false,
+            taskList: null, //Lo estoy utilizando en el mounted
+        };
+    },
+    async mounted() {
+        const session = JSON.parse(localStorage.getItem("supabase.auth.token"));
+        const email = session["currentSession"].user.email;
+        this.userName = email.slice(0, email.indexOf("@"));
+        this.email = email;
+        //Si existe la sesion me muestra las tareas
+        if (session) {
+            await this.tasks.fetchTasks();
+            this.taskList = this.tasks.tasks;
+        }
+        this.completedTasks = this.tasks.completed.length;
+        this.uncompletedTasks = this.tasks.uncompleted.length;
+    },
+    components: { Settings }
 };
 </script>
