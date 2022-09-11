@@ -6,10 +6,10 @@
 
 <script>
 export default {
-    methods:{
-        darkMode(){
-            document.documentElement.classList.toggle('dark')
-        }
+  methods:{
+    darkMode(){
+      document.documentElement.classList.toggle('dark')
     }
+  }
 }
 </script>

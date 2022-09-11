@@ -1,5 +1,5 @@
 <template>
-  <header class="p-5 font-semibold bg-gradient-to-r from-pink-300 via-purple-400 to-blue-300 dark:from-blue-900 dark:via-gray-400 dark:to-blue-300 text-gray-500">
+  <header class="p-5 h-40 font-semibold bg-gradient-to-r from-pink-300 via-purple-400 to-blue-300 dark:from-blue-900 dark:via-gray-400 dark:to-blue-300 text-gray-500">
     <div class="flex justify-between">
       <button @click="checkAuthentication" class="text-4xl font-bold text-blue-500">To-Do</button><!--Logo-->
       <DarkModeButton />
@@ -22,7 +22,7 @@ export default {
   components:{
     Nav,
     DarkModeButton
-},
+  },
   data(){ 
     return {
         light: true,
@@ -31,18 +31,18 @@ export default {
   methods:{
     async checkAuthentication(){
       try {
-      await this.user.fetchUser(); // here we call fetch user
-      if (!this.user.user) {
-      // redirect them to logout if the user is not there
-      router.push({ path: "/auth/signin" });
-      } else {
-      // continue to dashboard
-        router.push({ path: "/" });
-      }
-      } catch (e) {
+        await this.user.fetchUser(); //here we call fetch user
+        if (!this.user.user) {
+        //redirect them to logout if the user is not there
+        router.push({ path: "/auth/signin" });
+        } else {
+        //continue to dashboard
+          router.push({ path: "/" });
+        }
+      }catch (e) {
         console.log(e);
       }
-      }
-    },
+    }
+  },
 }
 </script>

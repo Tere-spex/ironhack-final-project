@@ -1,15 +1,13 @@
 <template>
-  <div class="flex justify-between items-center hover:text-blue-400 dark:hover:text-blue-400 dark:text-gray-100 p-5n">
-    <div class="flex justify-center items-center w-full">
-       <button @click="changeTaskState(id)" class=" text-xl md:text-2xl">
-         <i :class="`text-${!is_complete ?'gray-400' : 'green-600'} fa-solid fa-circle-check`"></i>
-        </button>
-       <input v-show="editable" type="text" class="px-2 mx-2 w-full" v-model="title" placeholder="Editar tarea">
-       <label v-show="!editable" class="mx-2 px-2 w-full" @dblclick="editTask">{{title}}</label>
-    </div>
+  <div class="flex justify-between items-center hover:text-black dark:hover:text-white dark:text-gray-300">
+    <button @click="changeTaskState(id)" class=" text-xl md:text-2xl mr-2">
+      <i :class="`text-${!is_complete ?'gray-300' : 'green-600'} fa-solid fa-circle-check hover:text-green-400`"></i>
+    </button>
+    <input v-show="editable" type="text" class="p-2 w-full dark:bg-gray-800" v-model="title" placeholder="Editar tarea">
+    <label v-show="!editable" class="p-2 w-full" @click="editTask">{{title}}</label>
     <div class="flex gap-2 md:gap-5 md:text-xl md:mx-2">
-       <button @click="updateTask(id)" class="hover:text-green-400"><i class="fa-solid fa-pen-to-square"></i></button>
-       <button @click="deleteTask(id)" class="hover:text-red-500"><i class="fa-solid fa-trash"></i></button>
+      <button @click="updateTask(id)" class="hover:text-green-400"><i class="fa-solid fa-pen-to-square"></i></button>
+      <button @click="deleteTask(id)" class="hover:text-red-500"><i class="fa-solid fa-trash"></i></button>
     </div>
   </div>
 </template>

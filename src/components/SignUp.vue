@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col justify-center items-center min-h-[calc(100vh-136px)] md:h-[calc(100vh-168px)]">
-    <div class="max-w-md md:mx-auto text-gray-500 font-semibold border shadow-md p-4 m-4 md:p-8">
-        <div class="flex flex-col justify-between items-center">
-            <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
-            <span class="p-2 dark:text-gray-300">CREATE YOUR ACCOUNT</span>
+<div class="flex flex-col justify-center items-center min-h-[calc(100vh-160px)] p-5">
+  <div class="text-gray-500 font-semibold border shadow-md p-5 w-full md:p-8 md:w-1/4">
+    <div class="flex flex-col justify-between items-center">
+          <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
+          <span class="p-2 dark:text-gray-300">CREATE YOUR ACCOUNT</span>
         </div>
         <form @submit.prevent="signUp" class="flow-root">
             <ul role="list">
@@ -23,43 +23,28 @@
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
-                        <i class="fa-solid fa-unlock"></i>
-                        <input class="outline-none w-full" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
-                        <button @click="showPassword" v-if="passwordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
-                        <button @click="hidePassword" v-if="passwordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
+                      <i class="fa-solid fa-unlock"></i>
+                      <input class="outline-none w-full" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
+                      <button @click="showPassword" v-if="passwordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
+                      <button @click="hidePassword" v-if="passwordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
                 </li>
             </ul>
             <div class="text-gray-500">
-                <div class="py-3 sm:py-4">
-                  <div class="flex items-center space-x-16">
-                    <div class="flex items-center space-x-2">
-                      <input type="checkbox" required>
-                      <span class="dark:text-gray-300">I Read and Agree to Terms & Conditions</span>
-                    </div>
-                  </div>
+                <div class="flex gap-2 py-5">
+                  <input type="checkbox" required>
+                  <span class="dark:text-gray-300">I Read and Agree to Terms & Conditions</span>
                 </div>
                 <!-- mostrar cuando salte un error o el registro sea correcto-->
-                <div class="py-3 sm:py-4">
-                  <div class="flex flex-col items-center space-x-4 text-center">
-                    <span v-if="errorSupabase" :class="`text-${is_errorOk ?'green-600' : 'red-400'}`">{{ errorSupabase }}</span>
-                    <span v-if="errorPasswordConfirm" :class="`text-${is_errorOk ?'green-600' : 'red-400'}`">{{ errorPasswordConfirm }}</span>
-                  </div>
+                <div v-if="errorSupabase" class="flex flex-col items-center space-x-4 text-center">
+                  <span class="text-red-400 font-bold">{{ errorSupabase }}!</span>
                 </div>
-                <div class=" flex justify-center py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                        <div class="text-white w-full">
-                            <button class="uppercase bg-blue-400 rounded-xl py-2 px-16">Create account!</button>
-                        </div>
-                    </div>
+                <div class="flex justify-center items-center text-white w-full p-5">
+                  <button class="bg-blue-400 rounded-xl py-2 px-16">Create Account</button>
                 </div>
-                <div class=" flex justify-center py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                        <div>
-                            <span class="dark:text-gray-300">Already have an account? <RouterLink class="text-blue-400 font-normal" :to="`/auth/signin`">Sign in!</RouterLink></span>
-                        </div>
-                    </div>
-                </div>
+                <div class="flex justify-center p-5">
+                  <span class="dark:text-gray-300">Already have an account? <RouterLink class="text-blue-400 font-normal" :to="`/auth/signin`">Sign in!</RouterLink></span>
+                </div>  
             </div>
         </form>
     </div>
