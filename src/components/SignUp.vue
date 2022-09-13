@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col justify-center items-center min-h-[calc(100vh-160px)] p-5">
-  <div class="text-gray-500 border-2 shadow-md shadow-gray-300 p-5 w-full md:p-8 md:w-1/4">
+  <div class="text-gray-500 border-2 shadow-md shadow-gray-300 dark:shadow-gray-700 p-5 w-full md:p-8 md:w-1/4">
     <div class="flex flex-col justify-between items-center">
           <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
           <span class="p-2 dark:text-gray-300 font-semibold">CREATE YOUR ACCOUNT</span>

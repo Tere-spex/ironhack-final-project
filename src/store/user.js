@@ -43,6 +43,7 @@ export const useUserStore = defineStore("user", {
       //   console.log(error)
       //   return error
       // }
+
     },
     //Logout
     async logOut(){

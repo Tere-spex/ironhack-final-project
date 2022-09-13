@@ -1,15 +1,15 @@
 <template>
   <div class="flex flex-col justify-center items-center min-h-[calc(100vh-160px)] p-5">
-    <h1 class="text-4xl text-gray-600 dark:text-gray-100 font-semibold p-5">Manage Profile</h1>
-    <div class="text-gray-500 border-2 shadow-md shadow-gray-300 p-5 w-full md:p-8 md:w-1/4">
-      <div class="flex justify-start items-center gap-5 py-5">
+    <h1 class="text-4xl text-gray-600 dark:text-gray-100 font-semibold pb-16">Manage Profile</h1>
+    <div class="text-gray-500 border-2 shadow-md shadow-gray-300 dark:shadow-gray-700 p-5 w-full md:p-8 md:w-1/4">
+      <div v-if="this.profiles.profiles" class="flex justify-start items-center gap-5 py-5">
         <div>
           <RouterLink :to="`/settings`">
-            <img class="rounded-full w-16 h-16 md:w-20 md:h-20" src="https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/male-profile.jpg" alt="avatar">
+            <img class="rounded-full w-16 h-16 md:w-20 md:h-20" :src="this.profiles.profiles.avatar_url" alt="avatar">
           </RouterLink>
         </div>
         <div>
-          <span class="font-bold text-xl dark:text-gray-300">Username</span>
+          <span class="font-bold text-xl dark:text-gray-300">{{this.profiles.profiles.username}}</span>
           <br />
           <span class="dark:text-gray-300">terehernandez2006@hotmail.com</span>
         </div>
@@ -66,7 +66,7 @@ export default {
     async createProfile(){
       try{
         console.log("Hago lo mejor que puedo...");
-        await this.profile.createProfile(this.userName, this.avatar, this.user.user.id );
+        await this.profiles.createProfile(this.userName, this.avatar, this.user.user.id );
         console.log(this.profiles);
       }catch{
         console.log('profile could not be processed');
@@ -75,5 +75,12 @@ export default {
       this.avatar_url = "";
     }
   },
+  async mounted() {
+     
+      //Si existe la sesion me muestra las tareas
+      
+        await this.profiles.fetchProfile(this.user.user.id);
+ 
+    },
 }
 </script>

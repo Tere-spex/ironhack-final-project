@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center min-h-[calc(100vh-160px)] p-5">
-    <div class="text-gray-500 font-semibold border-2 shadow-md shadow-gray-300 p-5 w-full md:p-8 md:w-1/4">
+    <div class="text-gray-500 font-semibold border-2 shadow-md shadow-gray-300 dark:shadow-gray-700 p-5 w-full md:p-8 md:w-1/4">
       <div class="flex flex-row justify-end">
         <button class="bg-gray-100 rounded-full w-10 h-10" @click="goToSingup">x</button>
       </div>
