@@ -1,22 +1,22 @@
 <template>
 <div class="flex flex-col justify-center items-center min-h-[calc(100vh-160px)] p-5">
-  <div class="text-gray-500 font-semibold border shadow-md p-5 w-full md:p-8 md:w-1/4">
+  <div class="text-gray-500 border-2 shadow-md shadow-gray-300 p-5 w-full md:p-8 md:w-1/4">
     <div class="flex flex-col justify-between items-center">
           <img class="w-36" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="User icon">
-          <span class="p-2 dark:text-gray-300">CREATE YOUR ACCOUNT</span>
+          <span class="p-2 dark:text-gray-300 font-semibold">CREATE YOUR ACCOUNT</span>
         </div>
         <form @submit.prevent="signUp" class="flow-root">
             <ul role="list">
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <i class="fa-solid fa-envelope"></i>
-                        <input class="outline-none w-full" type="email" v-model="email" placeholder="E-mail">
+                        <input class="outline-0 w-full" type="email" v-model="email" placeholder="E-mail">
                     </div>
                 </li>
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                         <i class="fa-solid fa-unlock"></i>
-                        <input class="outline-none w-full" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
+                        <input class="outline-0 w-full" :type="passwordVisibility" v-model="password" min="6" placeholder="Password">
                         <button @click="showPassword" v-if="passwordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
                         <button @click="hidePassword" v-if="passwordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
@@ -24,9 +24,9 @@
                 <li class="py-3 sm:py-4 text-gray-500">
                     <div class="flex items-center space-x-4 border rounded-lg p-2 dark:bg-white">
                       <i class="fa-solid fa-unlock"></i>
-                      <input class="outline-none w-full" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
-                      <button @click="showPassword" v-if="passwordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
-                      <button @click="hidePassword" v-if="passwordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
+                      <input class="outline-0 w-full" :type="confPasswordVisibility" v-model="repeatPassword" min="6" placeholder="Repeat Password">
+                      <button @click="showConfPassword" v-if="confPasswordVisibility === 'password'"><i class="fa-solid fa-eye"></i></button>
+                      <button @click="hideConfPassword" v-if="confPasswordVisibility === 'text'"><i class="fa-solid fa-eye-slash"></i></button>
                     </div>
                 </li>
             </ul>
@@ -40,7 +40,7 @@
                   <span class="text-red-400 font-bold">{{ errorSupabase }}!</span>
                 </div>
                 <div class="flex justify-center items-center text-white w-full p-5">
-                  <button class="bg-blue-400 rounded-xl py-2 px-16">Create Account</button>
+                  <button class="bg-blue-400 rounded-xl py-2 px-16 font-semibold">Create Account</button>
                 </div>
                 <div class="flex justify-center p-5">
                   <span class="dark:text-gray-300">Already have an account? <RouterLink class="text-blue-400 font-normal" :to="`/auth/signin`">Sign in!</RouterLink></span>

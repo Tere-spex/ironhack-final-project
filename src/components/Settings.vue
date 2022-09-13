@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center min-h-[calc(100vh-160px)] p-5">
     <h1 class="text-4xl text-gray-600 dark:text-gray-100 font-semibold p-5">Manage Profile</h1>
-    <div class="text-gray-500 font-semibold border shadow-md p-5 w-full md:p-8 md:w-1/4">
+    <div class="text-gray-500 border-2 shadow-md shadow-gray-300 p-5 w-full md:p-8 md:w-1/4">
       <div class="flex justify-start items-center gap-5 py-5">
         <div>
           <RouterLink :to="`/settings`">
@@ -18,7 +18,7 @@
         <div class="py-3 sm:py-4 text-gray-500 dark:text-gray-200">
           <div class="flex gap-2 mb-1">
             <span><i class="fa-solid fa-user"></i></span>
-            <label class="font-bold" for="">Username:</label>
+            <label class="font-semibold" for="">Username:</label>
           </div>
           <div class="flex items-center dark:bg-gray-800">
             <!-- <p v-if="!editable" class="mx-2 px-2 w-full">LoremIpsum</p> -->
@@ -28,7 +28,7 @@
         <div class="py-3 sm:py-4 text-gray-500 dark:text-gray-200">
           <div class="flex gap-2 mb-1">
             <span><i class="fa-regular fa-image"></i></span>
-            <label class="font-bold" for="">Avatar URL:</label>
+            <label class="font-semibold" for="">Avatar URL:</label>
           </div>
           <div class="flex items-center dark:bg-gray-800">
             <!-- <p v-if="!editable" class="mx-2 px-2 w-full">https://.................</p> -->
@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="text-center pt-10 pb-5">
-          <button type="submit" class="bg-blue-400 rounded-xl py-2 px-16 text-white">Create Profile</button>
+          <button type="submit" class="bg-blue-400 rounded-xl py-2 px-16 text-white font-semibold">Create Profile</button>
         </div>
       </form>
     </div>

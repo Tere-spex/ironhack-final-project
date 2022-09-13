@@ -3,7 +3,7 @@
     <button @click="changeTaskState(id)" class=" text-xl md:text-2xl mr-2">
       <i :class="`text-${!is_complete ?'gray-300' : 'green-600'} fa-solid fa-circle-check hover:text-green-400`"></i>
     </button>
-    <input v-show="editable" type="text" class="p-2 w-full dark:bg-gray-800" v-model="title" placeholder="Editar tarea">
+    <input v-show="editable" @keyup.enter="updateTask(id)" type="text" class="p-2 w-full dark:bg-gray-800 outline-0" v-model="title" placeholder="Editar tarea">
     <label v-show="!editable" class="p-2 w-full" @click="editTask">{{title}}</label>
     <div class="flex gap-2 md:gap-5 md:text-xl md:mx-2">
       <button @click="updateTask(id)" class="hover:text-green-400"><i class="fa-solid fa-pen-to-square"></i></button>
