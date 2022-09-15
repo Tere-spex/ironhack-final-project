@@ -2,14 +2,12 @@
   <div class="md:border-r-2">
     <div class="flex justify-between md:justify-start md:gap-5 items-center bg-gray-100 dark:bg-gray-700 p-3">
       <div class="">
-        <RouterLink :to="`/settings`">
-          <img class="rounded-full w-16 h-16 md:w-20 md:h-20" src="https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/male-profile.jpg" alt="avatar">
-        </RouterLink>
+        <Avatar />
       </div>
       <div>
-        <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
-        <br />
-        <span class="dark:text-gray-300" v-if="email">{{ email }}</span>
+        <!-- <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
+        <br /> -->
+        <!-- <span class="dark:text-gray-300" v-if="email">{{ email }}</span> -->
       </div>
       <!-- esconder mostrar estado tareas -->
       <button
@@ -59,9 +57,9 @@
 //datos obtenidos desde pinia store
 import { useUserStore } from "../store/user";
 import { useTaskStore } from "../store/task";
-import Settings from './Settings.vue';
-import router from '../router/index';
+import Avatar from './avatar.vue';
 
+import router from '../router/index';
 export default {
     setup() {
       const tasks = useTaskStore();
@@ -92,6 +90,6 @@ export default {
       this.completedTasks = this.tasks.completed.length;
       this.uncompletedTasks = this.tasks.uncompleted.length;
     },
-    components: { Settings }
+    components: { Avatar }
 };
 </script>
