@@ -31,7 +31,7 @@
                 </li>
             </ul>
             <div class="text-gray-500">
-                <div class="flex gap-2 py-5">
+                <div class="flex gap-2 py-3">
                   <input type="checkbox" required>
                   <span class="dark:text-gray-300">I Read and Agree to Terms & Conditions</span>
                 </div>
