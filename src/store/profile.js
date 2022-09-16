@@ -13,12 +13,11 @@ export const useProfileStore = defineStore("profiles", {
       try {
         const { data: profiles, error } = await supabase
           .from("profiles")
-          .select(`username, avatar_url`)
+          .select(`username, avatar_url, user_id`)
           .eq("user_id", useUserStore().user.id)
           .single();
 
           this.profiles = profiles;
-
           if (error) throw error;
           
       }catch (error) {
@@ -27,9 +26,6 @@ export const useProfileStore = defineStore("profiles", {
     },
     //POST (crear el perfil)
     async createProfile(username, avatar_url, userid) {
-      // si no te gusta el otro comentario: plantear lógica de si el profile existe 
-      // Puedes hacer un fetch aquí que si es positivo haga return y si falla que cree el usuario
-      // try -> fetchprofile() y en el catch meter el insert
       console.log("creating profile...", userid);
       const { profiles, error } = await supabase
         .from("profiles")
@@ -40,7 +36,17 @@ export const useProfileStore = defineStore("profiles", {
         console.log("error", error.message);
       }
     },
-
-   
+    //WORK IN PROGRESS
+    // Hacer el PUT / Actualizar el perfil
+    // async updateProfile( username, avatar_url, userid){
+    //   const { profiles, error } = await supabase
+    //   .from("profiles")
+    //   .update({ username: username, avatar_url: avatar_url })
+    //   .match({ id: userid})
+    //   if (error) {
+    //     console.log('error', error);
+    //   }
+    //   this.fetchProfile();
+    // },
   },
 });

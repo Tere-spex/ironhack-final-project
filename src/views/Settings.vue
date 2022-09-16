@@ -65,6 +65,7 @@ export default {
                 try {
                     console.log("NO existe, lo voy a crear");
                     await this.profiles.createProfile(this.userName, this.avatar, this.user.user.id);
+                    await this.profiles.fetchProfile(this.user.user.id);
                 }
                 catch (error) {
                     console.log("profile could not be processed");
