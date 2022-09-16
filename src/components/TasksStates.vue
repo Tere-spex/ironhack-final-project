@@ -1,9 +1,7 @@
 <template>
   <div class="md:border-r-2">
     <div class="flex justify-between md:justify-start md:gap-5 items-center bg-gray-100 dark:bg-gray-700 p-3">
-      <div class="">
-        <Avatar />
-      </div>
+      <Avatar />
       <div>
         <!-- <span class="font-bold text-xl dark:text-gray-300" v-if="email">{{ userName }}</span>
         <br /> -->
