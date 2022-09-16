@@ -42,7 +42,7 @@
                 <div class="flex justify-center items-center text-white w-full p-5">
                   <button class="bg-blue-400 rounded-xl py-2 px-16 font-semibold">Create Account</button>
                 </div>
-                <div class="flex justify-center p-5">
+                <div class="flex justify-center pb-5">
                   <span class="dark:text-gray-300">Already have an account? <RouterLink class="text-blue-400 font-normal" :to="`/auth/signin`">Sign in!</RouterLink></span>
                 </div>  
             </div>
